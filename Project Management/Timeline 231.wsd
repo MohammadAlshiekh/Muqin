@@ -1,0 +1,56 @@
+@startgantt Term 231
+
+title Term 231
+Project starts 2023-9-1
+printscale daily
+today is colored in LightBlue
+' saturday are closed
+' friday are closed
+
+' [Mobile App Development] lasts 10 days
+' [Back-end Development] lasts 15 days
+' [Model Development] lasts 15 days
+
+' Vacations
+
+2023-11-20 to 2023-11-26 are named [Midterm Break]
+2023-11-20 to 2023-11-26 are colored in red
+
+' Deadlines
+
+[Proposal]          happens on 2023-9-8
+[Project Proposal]  ends on 2023-9-8 and lasts 8 days
+[Plan]              happens on 2023-9-17
+[Project Plan]      ends on 2023-9-17 and starts after [Project Proposal]'s end
+
+[SRS-1]             happens on 2023-10-1
+[SRS-2]             happens on 2023-10-8
+[SRS-3]             happens on 2023-10-15
+
+[Software Requirements Specification Document] as [SRS] ends on 2023-10-15
+
+[SRS]               starts after [Project Plan]'s end
+
+[SRS-1] displays on same row as [SRS-2]
+[SRS-3] displays on same row as [SRS-2]
+
+[SDD-1]             happens on 2023-11-5
+[SDD-2]             happens on 2023-11-12
+[SDD-3]             happens on 2023-11-16
+
+[Software Design Document] as [SDD] lasts 5 weeks
+
+[SDD] starts after [SRS]'s end
+
+[SDD-1] displays on same row as [SDD-2]
+[SDD-3] displays on same row as [SDD-2]
+
+[Sprint 1] ends on 2023-12-7 and lasts 5 days
+
+[Sprint 1 Outcomes] happens on 2023-12-8 and displays on same row as [Sprint 1]
+
+[Presentations]     happens on 2023-12-10
+[Report Summary]    happens on 2023-12-10
+
+
+@endgantt

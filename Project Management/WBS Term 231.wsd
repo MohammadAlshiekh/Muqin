@@ -1,0 +1,52 @@
+@startwbs Term 231
+
+title Term 231
+
++ Project
+
+++ Planning & 
+
++++ Project Proposal
+
+++++ Project Objectives
++++- Main Features
+++++ Added Value
++++- Stakeholders
+
+++- Project Plan
+
+++++ Goals & Scope
++++- Organization
+++++ Schedule & Budget
++++- Management Plans
+
+++ Software Requirement Specification
+
++++ Overall Description
+
+++++ Product Functions
+++++ Diagrams
+
+++- Specific Requirements
+++++ Functional Requirements
+++++ Non-Functional Requirements
+
+
+
+++ Design
+
+++- Software Design Document
+
+++++ System Overview
++++- System Architecture
+++++ Technology Selection
++++- Component Design
+++++ Database Design
++++- Human Interface Design
+
++++ Presentation
++++ Project Summary Report
++++ Peer Evaluation
+
+
+@endwbs
