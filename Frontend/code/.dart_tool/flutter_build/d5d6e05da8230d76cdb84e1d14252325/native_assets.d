@@ -1,0 +1,1 @@
+ C:\\src\\projects\\muqin\\.dart_tool\\flutter_build\\d5d6e05da8230d76cdb84e1d14252325\\native_assets.yaml: 

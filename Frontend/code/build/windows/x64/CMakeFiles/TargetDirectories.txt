@@ -1,0 +1,16 @@
+C:/src/projects/muqin/build/windows/x64/CMakeFiles/INSTALL.dir
+C:/src/projects/muqin/build/windows/x64/CMakeFiles/ALL_BUILD.dir
+C:/src/projects/muqin/build/windows/x64/CMakeFiles/ZERO_CHECK.dir
+C:/src/projects/muqin/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_plugin.dir
+C:/src/projects/muqin/build/windows/x64/flutter/CMakeFiles/flutter_wrapper_app.dir
+C:/src/projects/muqin/build/windows/x64/flutter/CMakeFiles/flutter_assemble.dir
+C:/src/projects/muqin/build/windows/x64/flutter/CMakeFiles/INSTALL.dir
+C:/src/projects/muqin/build/windows/x64/runner/CMakeFiles/muqin.dir
+C:/src/projects/muqin/build/windows/x64/runner/CMakeFiles/INSTALL.dir
+C:/src/projects/muqin/build/windows/x64/runner/CMakeFiles/ALL_BUILD.dir
+C:/src/projects/muqin/build/windows/x64/plugins/syncfusion_pdfviewer_windows/CMakeFiles/syncfusion_pdfviewer_windows_plugin.dir
+C:/src/projects/muqin/build/windows/x64/plugins/syncfusion_pdfviewer_windows/CMakeFiles/INSTALL.dir
+C:/src/projects/muqin/build/windows/x64/plugins/syncfusion_pdfviewer_windows/CMakeFiles/ALL_BUILD.dir
+C:/src/projects/muqin/build/windows/x64/plugins/url_launcher_windows/CMakeFiles/url_launcher_windows_plugin.dir
+C:/src/projects/muqin/build/windows/x64/plugins/url_launcher_windows/CMakeFiles/INSTALL.dir
+C:/src/projects/muqin/build/windows/x64/plugins/url_launcher_windows/CMakeFiles/ALL_BUILD.dir
