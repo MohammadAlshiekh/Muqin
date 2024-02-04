@@ -1,7 +1,7 @@
-#Wed Jan 24 16:54:56 AST 2024
-base.0=C\:\\src\\projects\\muqin\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-base.1=C\:\\src\\projects\\muqin\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
-path.0=classes.dex
+#Sat Feb 03 17:43:07 AST 2024
+base.1=D\:\\Projects\\Muqin\\Muqin\\Frontend\\code\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes2.dex
 path.1=classes2.dex
-renamed.0=classes.dex
+base.0=D\:\\Projects\\Muqin\\Muqin\\Frontend\\code\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
 renamed.1=classes2.dex
+renamed.0=classes.dex
+path.0=classes.dex
