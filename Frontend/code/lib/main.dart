@@ -1,4 +1,8 @@
+import 'package:muqin/Book.dart';
+import 'package:muqin/Sign_in.dart';
+import 'package:muqin/Sign_up.dart';
 import 'package:muqin/home_page.dart';
+import 'package:muqin/catalog_page.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
               buttonColor: const Color.fromARGB(255, 222, 119, 115),
               colorScheme: ColorScheme.fromSeed(
                   seedColor: const Color.fromARGB(255, 222, 119, 115)))),
-      home: const HomePage(),
+      home: CatalogPage(),
     );
   }
 }

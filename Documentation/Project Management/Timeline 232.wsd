@@ -1,0 +1,69 @@
+@startgantt Term 232
+title Term 232
+
+Project starts 2024-01-29
+printscale weekly zoom 5
+today is colored in LightBlue
+
+[Initial UI mockups] as [IUM] lasts 1 week
+[Setup backend infra] as [SBI] lasts 1 week
+[UI & Backend Setup Initiated] as [UBSI] happens at [SBI]'s end
+
+[User auth. screens] as [UAS] lasts 1 week
+[UAS] starts at [IUM]'s end
+[User auth. services] as [UAuthS] lasts 1 week
+[UAuthS] starts at [SBI]'s end
+[User auth. Prototyping] as [UAP] happens at [UAuthS]'s end
+
+[Book catalog Listing UI] as [BCLUI] lasts 1 week
+[BCLUI] starts at [UAS]'s end
+[DB. setup for catalog] as [DSBC] lasts 1 week
+[DSBC] starts at [UAuthS]'s end
+[Book catalog Interface Development] as [BCID] happens at [DSBC]'s end
+
+[User Profile UI] as [UPUI] lasts 1 week
+[UPUI] starts at [BCLUI]'s end
+[User Profile API] as [UPAPI] lasts 1 week
+[UPAPI] starts at [DSBC]'s end
+[User Profile Integration] as [UPI] happens at [UPAPI]'s end
+
+[Reading Features UI] as [RFUI] lasts 1 week
+[RFUI] starts at [UPUI]'s end
+[Reading features API] as [RFAPI] lasts 1 week
+[RFAPI] starts at [UPAPI]'s end
+[Reading Feature Prototyping] as [RFP] happens at [RFAPI]'s end
+
+[Library Management UI] as [LMUI] lasts 1 week
+[LMUI] starts at [RFUI]'s end
+[Library Management API] as [LMAPI] lasts 1 week
+[LMAPI] starts at [RFAPI]'s end
+[Library Management System Development] as [LMSD] happens at [LMAPI]'s end
+
+[TTS UI] as [TTSUI] lasts 1 week
+[TTSUI] starts at [LMUI]'s end
+[Setup TTS Service] as [STTSS] lasts 1 week
+[STTSS] starts at [LMAPI]'s end
+[TTS Feature Integration] as [TTSFI] happens at [STTSS]'s end
+
+[Visual. Features UI] as [VFUI] lasts 1 week
+[VFUI] starts at [TTSUI]'s end
+[Visual. services] as [VS] lasts 1 week
+[VS] starts at [STTSS]'s end
+[Visual. Features Development] as [VFD] happens at [VS]'s end
+
+[Summary. Features UI] as [SFUI] lasts 1 week
+[SFUI] starts at [VFUI]'s end
+[Setup Summary. Service] as [SSS] lasts 1 week
+[SSS] starts at [VS]'s end
+[Summary. Feature Integration] as [SFI] happens at [SSS]'s end
+
+[Notifs. UI] as [NUI] lasts 1 week
+[NUI] starts at [SFUI]'s end
+[Notifs. system] as [NS] lasts 1 week
+[NS] starts at [SSS]'s end
+[Notifs. System Setup] as [NSS] happens at [NS]'s end
+
+[Final tweaks] as [FTD] lasts 1 week
+[FTD] starts at [NUI]'s end
+[Finalize Implementation] as [FI] happens at [FTD]'s end
+@endgantt

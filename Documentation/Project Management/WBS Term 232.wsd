@@ -1,0 +1,33 @@
+@startwbs WBS
+
++ Mobile App Development
+
++- Frontend Development
+
++++ UI/UX Design
+++++ Theme Design
++++- Color Palette
+++++ Usability Engineering
++++- Typography
+++++ Platform-Specific Design
+
+++- UI/UX Implementation
++++- Flutter Clean Architecture
+++++- Flutter Widgets
++++++ Flutter Navigation
++++++ Flutter Animations
+++++- Provider Data Management
+
+++ Backend Development
+
+++- API Development
+++++ ElevenLabs API
++++- Visualization API
++++- LLM API
+++++ API Integration
+
++++ Book Management
+++++ Data Collection
+++++ Data Pre-processing
+
+@endwbs
