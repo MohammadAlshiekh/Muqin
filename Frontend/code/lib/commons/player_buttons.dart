@@ -49,7 +49,7 @@ class PlayerButtons extends StatelessWidget {
   }
 
   Widget _playPauseButton(PlayerState playerState) {
-    final processingState = playerState?.processingState;
+    final processingState = playerState.processingState;
     if (processingState == ProcessingState.loading ||
         processingState == ProcessingState.buffering) {
       return Container(

@@ -4,41 +4,7 @@
             "outputFile": "com.example.muqin.app-mergeDebugResources-15:/values-sl/values-sl.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Amjad\\.gradle\\caches\\transforms-3\\e255c6ce9910a673f2619b479a7d74a8\\transformed\\jetified-exoplayer-core-2.18.7\\res\\values-sl\\values-sl.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,123,183,247,311,386,467,566,657",
-                        "endColumns": "67,59,63,63,74,80,98,90,73",
-                        "endOffsets": "118,178,242,306,381,462,561,652,726"
-                    },
-                    "to": {
-                        "startLines": "11,12,13,14,15,16,17,18,19",
-                        "startColumns": "4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "993,1061,1121,1185,1249,1324,1405,1504,1595",
-                        "endColumns": "67,59,63,63,74,80,98,90,73",
-                        "endOffsets": "1056,1116,1180,1244,1319,1400,1499,1590,1664"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Amjad\\.gradle\\caches\\transforms-3\\1c11fcd5d741b7583794ec56efdeaa69\\transformed\\jetified-media2-session-1.2.1\\res\\values-sl\\values-sl.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "55,164,275,376,508",
-                        "endColumns": "108,110,100,131,134",
-                        "endOffsets": "159,270,371,503,638"
-                    },
-                    "to": {
-                        "startLines": "10,23,24,25,26",
-                        "startColumns": "4,4,4,4,4",
-                        "startOffsets": "884,1987,2098,2199,2331",
-                        "endColumns": "108,110,100,131,134",
-                        "endOffsets": "988,2093,2194,2326,2461"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Amjad\\.gradle\\caches\\transforms-3\\c4988ff80110f75080a936fc6f044848\\transformed\\core-1.10.1\\res\\values-sl\\values-sl.xml",
+                    "source": "C:\\Users\\solym\\.gradle\\caches\\transforms-3\\c4988ff80110f75080a936fc6f044848\\transformed\\core-1.10.1\\res\\values-sl\\values-sl.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",
@@ -55,7 +21,24 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Amjad\\.gradle\\caches\\transforms-3\\d12883dde0390e08dd2a1192741cec1b\\transformed\\browser-1.5.0\\res\\values-sl\\values-sl.xml",
+                    "source": "C:\\Users\\solym\\.gradle\\caches\\transforms-3\\1c11fcd5d741b7583794ec56efdeaa69\\transformed\\jetified-media2-session-1.2.1\\res\\values-sl\\values-sl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "55,164,275,376,508",
+                        "endColumns": "108,110,100,131,134",
+                        "endOffsets": "159,270,371,503,638"
+                    },
+                    "to": {
+                        "startLines": "10,23,24,25,26",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "884,1987,2098,2199,2331",
+                        "endColumns": "108,110,100,131,134",
+                        "endOffsets": "988,2093,2194,2326,2461"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\solym\\.gradle\\caches\\transforms-3\\d12883dde0390e08dd2a1192741cec1b\\transformed\\browser-1.5.0\\res\\values-sl\\values-sl.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -69,6 +52,23 @@
                         "startOffsets": "778,1669,1773,1885",
                         "endColumns": "105,103,111,101",
                         "endOffsets": "879,1768,1880,1982"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\solym\\.gradle\\caches\\transforms-3\\e255c6ce9910a673f2619b479a7d74a8\\transformed\\jetified-exoplayer-core-2.18.7\\res\\values-sl\\values-sl.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,123,183,247,311,386,467,566,657",
+                        "endColumns": "67,59,63,63,74,80,98,90,73",
+                        "endOffsets": "118,178,242,306,381,462,561,652,726"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,18,19",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "993,1061,1121,1185,1249,1324,1405,1504,1595",
+                        "endColumns": "67,59,63,63,74,80,98,90,73",
+                        "endOffsets": "1056,1116,1180,1244,1319,1400,1499,1590,1664"
                     }
                 }
             ]
