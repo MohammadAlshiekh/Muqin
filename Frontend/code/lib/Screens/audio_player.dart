@@ -10,6 +10,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
 
 class Player extends StatefulWidget {
+  const Player({super.key});
+
   @override
   _PlayerState createState() => _PlayerState();
 }

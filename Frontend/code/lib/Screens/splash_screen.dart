@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:muqin/Screens/catalog_page.dart';
+import 'package:muqin/Screens/home_page.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -17,7 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(const Duration(seconds: 5), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => const CatalogPage()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => const HomePage()));
     });
   }
 
@@ -30,20 +30,6 @@ class _SplashScreenState extends State<SplashScreen> {
               'assets/Splash.png'), // Make sure this asset is added to your pubspec.yaml
           fit: BoxFit.cover,
         ),
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          // Your widgets for logo and title
-          CircularProgressIndicator(
-            valueColor: AlwaysStoppedAnimation<Color>(
-              Theme.of(context)
-                  .colorScheme
-                  .secondary, // Use color from the theme
-            ),
-          ),
-          // Additional widgets like text etc.
-        ],
       ),
     );
   }

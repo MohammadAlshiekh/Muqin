@@ -67,7 +67,7 @@ class BookDetails extends StatelessWidget {
                 IconButton(
                     onPressed: () {
                       Navigator.of(context)
-                          .push(MaterialPageRoute(builder: (ctx) => Player()));
+                          .push(MaterialPageRoute(builder: (ctx) => const Player()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
@@ -87,14 +87,14 @@ class BookDetails extends StatelessWidget {
                   child: Container(
                     alignment: Alignment.topCenter,
                     decoration: BoxDecoration(
-                        color: Color.fromRGBO(23, 27, 54, 1),
+                        color: const Color.fromRGBO(23, 27, 54, 1),
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
-                            color: Color.fromRGBO(23, 27, 54, 1.000),
+                            color: const Color.fromRGBO(23, 27, 54, 1.000),
                             strokeAlign: BorderSide.strokeAlignInside,
                             width: 10)),
                     clipBehavior: Clip.hardEdge,
-                    child: Image(
+                    child: const Image(
                       image: AssetImage("assets/AhmedShawqi.jpg"),
                       fit: BoxFit.cover,
                     ),
@@ -103,7 +103,7 @@ class BookDetails extends StatelessWidget {
               ],
             ),
             Container(
-              child: SmallCard(
+              child: const SmallCard(
                 title: 'المؤلف',
                 content: 'أحمد شوقي',
                 image: AssetImage("assets/ahmadimage.jpg"),
@@ -120,7 +120,7 @@ class BookDetails extends StatelessWidget {
                       child: Text(
                         "عن الكتاب:",
                         style: GoogleFonts.vazirmatn(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                                 color: Color.fromRGBO(77, 80, 108, 1),
                                 fontSize: 24)),
                         textDirection: TextDirection.rtl,
@@ -129,7 +129,7 @@ class BookDetails extends StatelessWidget {
                     Text(
                       "«مجنون ليلى» هو قيس بن الملوح، من بطون هوازن، وأحد كبار الشعراء الذين عاشوا في القرن الأول الهجري إبان الحكم الأموي، ويعد قيس من المتيَّمين الذين سالت ألسنتهم بالشعر قولًا في الحب والغزل، وسمي بمجنون ليلى لهيامه بها وعشقه لها، ذلك العشق الذي فاق كل الحدود، حتى أصبح مثالًا للعاشقين، ورغم هذا الحب، فقد رفض أهل ليلى أن يزوجوها له، فهام على وجهه ينشد الشعر ويتنقل بين البلاد، حتى مات كمدًا، فأي أُنْس له في الحياة وقد استوحشت، وأي طمأنينة له في نفسه وقد صارت قلقه، وأي حب ينشده في الدنيا بعد حب ليلى! وقد تناولَت هذه المسرحية الشعرية لأمير الشعراء أحمد شوقي، تلك المأساة الدرامية تناولًا متميزًا ورائعًا.",
                       style: GoogleFonts.vazirmatn(
-                          color: Color.fromRGBO(109, 110, 121, 1),
+                          color: const Color.fromRGBO(109, 110, 121, 1),
                           fontSize: 16),
                       textDirection: TextDirection.rtl,
                     ),
@@ -144,14 +144,14 @@ class SmallCard extends StatelessWidget {
   final String title;
   final String content;
   final AssetImage image;
-  SmallCard({required this.title, required this.content, required this.image});
+  const SmallCard({super.key, required this.title, required this.content, required this.image});
 
   @override
   Widget build(BuildContext context) {
     return Card(
       elevation: 3, // Set the elevation (shadow) of the card
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         width: 150,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -160,21 +160,21 @@ class SmallCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
                   ),
                   textDirection: TextDirection.rtl,
                 ),
-                SizedBox(height: 8),
+                const SizedBox(height: 8),
                 Text(content,
-                    style: TextStyle(fontSize: 16),
+                    style: const TextStyle(fontSize: 16),
                     textDirection: TextDirection.rtl),
               ],
             ),
-            SizedBox(width: 16),
+            const SizedBox(width: 16),
             ClipOval(
-              child: Container(
+              child: SizedBox(
                 width: 50,
                 height: 50,
                 child: Image(

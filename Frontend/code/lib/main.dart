@@ -1,26 +1,35 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:muqin/Screens/splash_screen.dart';
+import 'package:muqin/providers/provider.dart';
 
-void main() {
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const ProviderScope(
     child: MyApp(),
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends ConsumerWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+  final themeMode = ref.watch(themeModeToggle);
+    // ignore: avoid_print
+    print(themeMode);
     return MaterialApp(
       title: 'Muqin',
       theme: Theme.of(context).copyWith(
+       brightness: Brightness.light,
         textTheme: GoogleFonts.notoSansArabicTextTheme(Theme.of(context).textTheme),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 23, 27, 54)
         ),
+        
         buttonTheme: ButtonThemeData(
           buttonColor: const Color.fromARGB(255, 222, 119, 115),
           colorScheme: ColorScheme.fromSeed(
@@ -28,6 +37,23 @@ class MyApp extends StatelessWidget {
           )
         )
       ),
+      themeMode: themeMode,
+      darkTheme: Theme.of(context).copyWith(
+        brightness: Brightness.dark,
+        
+        textTheme: GoogleFonts.notoSansArabicTextTheme(Theme.of(context).textTheme),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 1, 1, 1)
+        ),
+        
+        buttonTheme: ButtonThemeData(
+          buttonColor: const Color.fromARGB(255, 222, 119, 115),
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: const Color.fromARGB(255, 222, 119, 115)
+          )
+        )
+      ),
+      
       home: const SplashScreen(), // Set SplashScreen as the home page
     );
   }

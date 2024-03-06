@@ -5,13 +5,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muqin/Screens/Sign_up.dart';
 
 class SignInPage extends StatefulWidget {
+  const SignInPage({super.key});
+
   @override
   _SignInPageState createState() => _SignInPageState();
 }
 
 class _SignInPageState extends State<SignInPage> {
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool showClearIcon = false;
 
   @override
@@ -41,14 +43,14 @@ class _SignInPageState extends State<SignInPage> {
                         "تسجيل الدخول",
                         style: Theme.of(context).textTheme.displayMedium,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       Text(
                         "مرحبًا بعودتك",
                         style: Theme.of(context).textTheme.titleLarge,
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 50,
                       )
                     ],
@@ -123,7 +125,7 @@ class _SignInPageState extends State<SignInPage> {
                         ),
                       ),
                     ),
-                    SizedBox(height: 14),
+                    const SizedBox(height: 14),
                     Align(
                         alignment: AlignmentDirectional.bottomEnd,
                         child: Text(
@@ -131,7 +133,7 @@ class _SignInPageState extends State<SignInPage> {
                           style: GoogleFonts.vazirmatn(
                               fontWeight: FontWeight.w700,
                               fontSize: 16,
-                              color: Color.fromARGB(255, 41, 43, 56)),
+                              color: const Color.fromARGB(255, 41, 43, 56)),
                         )),
                     const SizedBox(height: 16),
                     SizedBox(
@@ -169,7 +171,7 @@ class _SignInPageState extends State<SignInPage> {
                       child: Text(
                         "سجل بحساب جديد",
                         style: GoogleFonts.vazirmatn(
-                            textStyle: TextStyle(
+                            textStyle: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w700,
                           color: Color.fromARGB(255, 110, 110, 110),

@@ -5,6 +5,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muqin/Screens/Sign_in.dart';
 
 class SignUpPage extends StatefulWidget {
+  const SignUpPage({super.key});
+
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
@@ -170,7 +172,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       onTap: () => {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => SignInPage()),
+                          MaterialPageRoute(builder: (context) => const SignInPage()),
                         )
                       },
                       child: Text(

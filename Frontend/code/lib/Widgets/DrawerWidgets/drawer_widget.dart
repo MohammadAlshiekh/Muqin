@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:muqin/Widgets/DrawerWidgets/drawer_header.dart';
 import 'package:muqin/Widgets/DrawerWidgets/drawer_item.dart';
-
-class DrawerWidget extends StatelessWidget {
+import "package:muqin/providers/provider.dart";
+// Step 1: Convert DrawerWidget to a ConsumerStatefulWidget
+class DrawerWidget extends ConsumerWidget {
   const DrawerWidget({super.key});
-
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context,WidgetRef ref) {
+    // Step 3: Implement the build method in the State class
+    bool isDarkMode = Theme.of(context).brightness==Brightness.dark;
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -42,7 +45,16 @@ class DrawerWidget extends StatelessWidget {
             icon: Icons.help_outline,
             text: 'تصميم البرنامج',
             onTap: () => Navigator.of(context).pop(),
+
           ),
+Switch(
+  value: isDarkMode,
+  onChanged: (isOn) {
+    ThemeMode newThemeMode = isOn ? ThemeMode.dark : ThemeMode.light;
+    // Update the theme mode state
+    ref.read(themeModeToggle.notifier).state = newThemeMode;
+  },
+)
         ],
       ),
     );
