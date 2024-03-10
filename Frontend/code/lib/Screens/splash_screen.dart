@@ -1,33 +1,25 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:muqin/Screens/home_page.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:muqin/providers/provider.dart';
 
-class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+
+
+class SplashScreen extends ConsumerWidget {
+  const SplashScreen({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
-  _SplashScreenState createState() => _SplashScreenState();
-}
-
-class _SplashScreenState extends State<SplashScreen> {
-  @override
-  void initState() {
-    super.initState();
-    Timer(const Duration(seconds: 5), () {
-      Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => const HomePage()));
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Start the timer when the widget is first built
+    Future.delayed(const Duration(seconds: 1), () {
+      // After 3 seconds, update the splashScreenCompleteProvider to true
+      ref.read(splashScreenCompleteProvider.notifier).state = true;
     });
-  }
 
-  @override
-  Widget build(BuildContext context) {
     return Container(
+      // Your splash screen content here
       decoration: const BoxDecoration(
         image: DecorationImage(
-          image: AssetImage(
-              'assets/Splash.png'), // Make sure this asset is added to your pubspec.yaml
+          image: AssetImage('assets/Splash.png'),
           fit: BoxFit.cover,
         ),
       ),

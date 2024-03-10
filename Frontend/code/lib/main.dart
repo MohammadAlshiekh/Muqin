@@ -1,8 +1,12 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:muqin/Screens/Sign_in.dart';
+import 'package:muqin/Screens/home_page.dart';
 import 'package:muqin/Screens/splash_screen.dart';
+import 'package:muqin/Widgets/SignInWidgets/error_widget.dart';
 import 'package:muqin/firebase_options.dart';
 import 'package:muqin/providers/provider.dart';
 
@@ -20,8 +24,20 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
   final themeMode = ref.watch(themeModeToggle);
+  final isSplashScreenComplete = ref.watch(splashScreenCompleteProvider);
+  AsyncValue<User?> authState = ref.watch(authStateProvider);
+  Widget screen = const SplashScreen(); // Default to the SplashScreen
+
     // ignore: avoid_print
     print(themeMode);
+    if (isSplashScreenComplete) {
+      // If the splash screen timer is complete, decide based on auth state
+      screen = authState.when(
+        data: (User? user) => user == null ? SignInPage() : HomePage(),
+        loading: () => const SplashScreen(), // Keep showing the splash screen if auth state is loading
+        error: (error, stack) => ErrorScreen(error: error),
+      );
+    }
     return MaterialApp(
       title: 'Muqin',
       theme: Theme.of(context).copyWith(
@@ -55,8 +71,9 @@ class MyApp extends ConsumerWidget {
         )
       ),
       
-      home: const SplashScreen(), // Set SplashScreen as the home page
+      home: screen
     );
   }
 }
+
 

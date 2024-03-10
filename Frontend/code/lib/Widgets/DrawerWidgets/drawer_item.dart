@@ -15,7 +15,7 @@ class DrawerItem extends StatelessWidget {
           Icon(icon),
           Padding(
             padding: const EdgeInsets.only(left: 8.0),
-            child: Text(text),
+            child: Text(text,textDirection: TextDirection.rtl,),
           )
         ],
       ),
