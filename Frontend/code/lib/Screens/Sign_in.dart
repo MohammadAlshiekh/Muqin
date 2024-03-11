@@ -2,26 +2,70 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:muqin/Screens/Sign_up.dart';
 import 'package:muqin/Widgets/SignInWidgets/email_field.dart';
 import 'package:muqin/Widgets/SignInWidgets/greeting_section.dart';
 import 'package:muqin/Widgets/SignInWidgets/password_field.dart';
+import 'package:muqin/providers/provider.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class SignInPage extends ConsumerStatefulWidget {
+  const SignInPage(this.ref, {super.key});
+  final WidgetRef ref;
 
   @override
   // ignore: library_private_types_in_public_api
   _SignInPageState createState() => _SignInPageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignInPageState extends ConsumerState<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool showClearIcon = false;
+  late GoogleSignInAccount currentUser;
+  var _googleSignIn;
+  @override
+  void initState() {
+    _googleSignIn = widget.ref.read(googleSignIn);
+    _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
+      setState(() {
+        currentUser = account!;
+        if (currentUser != null) {
+          print(currentUser);
+        }
+      });
+      _googleSignIn.signInSilently();
+    });
+    super.initState();
+  }
+
+  Future<void> signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
+      
+    } on FirebaseAuthException catch (e) {
+      print(e.code);
+      if (e.code == 'invalid-credential') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+              'خطأ',
+              textDirection: TextDirection.rtl,
+            ),
+          ),
+        );
+      }
+    }
+  }
+
+  Future<void> googleSignOut() async {
+    await _googleSignIn.signOut();
+  }
+
   Future singIn() async {
     if (_formKey.currentState!.validate()) {
       try {
@@ -32,18 +76,17 @@ class _SignInPageState extends State<SignInPage> {
       } on FirebaseAuthException catch (e) {
         print(e.code);
         if (e.code == 'invalid-credential') {
-          
           ScaffoldMessenger.of(context).showSnackBar(
             const SnackBar(
-              content: Text('تأكد من البريد الإلكتروني وكلمة السر.',textDirection: TextDirection.rtl,),
+              content: Text(
+                'تأكد من البريد الإلكتروني وكلمة السر.',
+                textDirection: TextDirection.rtl,
+              ),
             ),
           );
-
-          
         }
       }
     }
-    
   }
 
   @override
@@ -156,7 +199,7 @@ class _SignInPageState extends State<SignInPage> {
                               elevation: 6,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
-                          onPressed: () {},
+                          onPressed: signInWithGoogle,
                           child: const Align(
                             alignment: Alignment.center,
                             child: Icon(

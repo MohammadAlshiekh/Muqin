@@ -33,7 +33,7 @@ class MyApp extends ConsumerWidget {
     if (isSplashScreenComplete) {
       // If the splash screen timer is complete, decide based on auth state
       screen = authState.when(
-        data: (User? user) => user == null ? SignInPage() : HomePage(),
+        data: (User? user) => user == null ? SignInPage(ref) : const HomePage(),
         loading: () => const SplashScreen(), // Keep showing the splash screen if auth state is loading
         error: (error, stack) => ErrorScreen(error: error),
       );

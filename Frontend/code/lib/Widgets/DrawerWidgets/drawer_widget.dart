@@ -7,13 +7,14 @@ import "package:muqin/providers/provider.dart";
 // Step 1: Convert DrawerWidget to a ConsumerStatefulWidget
 class DrawerWidget extends ConsumerWidget {
   const DrawerWidget({super.key});
-  void signOut() {
-    // Sign out the user
-    FirebaseAuth.instance.signOut();
-  }
+
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-
+  void signOut() {
+    FirebaseAuth.instance.signOut();
+    ref.read(googleSignIn.notifier).state.signOut();
+    
+  }
     // Step 3: Implement the build method in the State class
     bool isDarkMode = Theme.of(context).brightness==Brightness.dark;
     return Drawer(

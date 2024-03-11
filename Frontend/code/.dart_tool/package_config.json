@@ -3,9 +3,9 @@
   "packages": [
     {
       "name": "_flutterfire_internals",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/_flutterfire_internals-1.3.24",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/_flutterfire_internals-1.3.16",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.18"
     },
     {
       "name": "archive",
@@ -51,21 +51,21 @@
     },
     {
       "name": "cloud_firestore",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore-4.15.7",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore-4.14.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "cloud_firestore_platform_interface",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore_platform_interface-6.1.8",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore_platform_interface-6.1.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "cloud_firestore_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore_web-3.10.7",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/cloud_firestore_web-3.9.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.18"
     },
     {
       "name": "collection",
@@ -86,6 +86,12 @@
       "languageVersion": "2.19"
     },
     {
+      "name": "csslib",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/csslib-0.17.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "device_info_plus",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/device_info_plus-9.1.1",
       "packageUri": "lib/",
@@ -98,8 +104,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "epub_view",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/epub_view-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "epubx",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/epubx-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "equatable",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/equatable-2.0.5",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -123,25 +141,25 @@
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth-4.17.7",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth-4.16.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.1.7",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth_platform_interface-7.0.9",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth_web-5.9.7",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_auth_web-5.8.13",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.18"
     },
     {
       "name": "firebase_core",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_core-2.26.0",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_core-2.24.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -153,15 +171,21 @@
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_core_web-2.11.5",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/firebase_core_web-2.10.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.18"
     },
     {
       "name": "flutter",
       "rootUri": "file:///Users/solym/src/flutter/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.2"
+    },
+    {
+      "name": "flutter_html",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/flutter_html-3.0.0-beta.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "flutter_lints",
@@ -207,9 +231,9 @@
     },
     {
       "name": "google_identity_services_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/google_identity_services_web-0.3.0+2",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/google_identity_services_web-0.3.1+1",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "google_sign_in",
@@ -242,10 +266,16 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "http",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/http-1.1.2",
+      "name": "html",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/html-0.15.4",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "http",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/http-1.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
     },
     {
       "name": "http_parser",
@@ -312,6 +342,12 @@
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/lints-2.1.1",
       "packageUri": "lib/",
       "languageVersion": "3.0"
+    },
+    {
+      "name": "list_counter",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/list_counter-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "matcher",
@@ -428,6 +464,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "scrollable_positioned_list",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/scrollable_positioned_list-0.3.8",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "shared_preferences",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/shared_preferences-2.2.2",
       "packageUri": "lib/",
@@ -459,9 +501,9 @@
     },
     {
       "name": "shared_preferences_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/shared_preferences_web-2.2.2",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/shared_preferences_web-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "shared_preferences_windows",
@@ -578,6 +620,12 @@
       "languageVersion": "2.17"
     },
     {
+      "name": "universal_file",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/universal_file-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "url_launcher",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/url_launcher-6.2.1",
       "packageUri": "lib/",
@@ -615,9 +663,9 @@
     },
     {
       "name": "url_launcher_web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/url_launcher_web-2.2.1",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/url_launcher_web-2.3.0",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "url_launcher_windows",
@@ -645,9 +693,9 @@
     },
     {
       "name": "web",
-      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/web-0.3.0",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/web-0.5.1",
       "packageUri": "lib/",
-      "languageVersion": "3.2"
+      "languageVersion": "3.3"
     },
     {
       "name": "win32",
@@ -680,7 +728,7 @@
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-03-10T19:12:56.817018Z",
+  "generated": "2024-03-11T16:50:37.836981Z",
   "generator": "pub",
   "generatorVersion": "3.3.0"
 }

@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:muqin/Screens/Sign_in.dart';
 
-class SignUpPage extends StatefulWidget {
+class SignUpPage extends ConsumerStatefulWidget {
   const SignUpPage({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _SignUpPageState extends State<SignUpPage> {
+class _SignUpPageState extends ConsumerState<SignUpPage> {
   final  _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   bool showClearIcon = false;
@@ -170,9 +172,10 @@ class _SignUpPageState extends State<SignUpPage> {
                     const SizedBox(height: 32.0),
                     GestureDetector(
                       onTap: () => {
+                        
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => const SignInPage()),
+                          MaterialPageRoute(builder: (context) =>  SignInPage(ref)),
                         )
                       },
                       child: Text(

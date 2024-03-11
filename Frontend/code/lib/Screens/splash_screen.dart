@@ -10,7 +10,7 @@ class SplashScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Start the timer when the widget is first built
-    Future.delayed(const Duration(seconds: 1), () {
+    Future.delayed(const Duration(seconds: 2), () {
       // After 3 seconds, update the splashScreenCompleteProvider to true
       ref.read(splashScreenCompleteProvider.notifier).state = true;
     });

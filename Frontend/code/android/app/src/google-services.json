@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "675079410927",
+    "project_id": "muqin-740c5",
+    "storage_bucket": "muqin-740c5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675079410927:android:843a28d12fb7d05ee2371a",
+        "android_client_info": {
+          "package_name": "com.example.muqin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675079410927-dvtm2ug7stcloqd6e30sopjisa2lj46q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muqin",
+            "certificate_hash": "fbce90ab88fbfb0d362614a528c386ffb4db96de"
+          }
+        },
+        {
+          "client_id": "675079410927-f5hvul3oamu6evcjq0ikviamljjht15m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgFYizGTCBZrJK3fmoNAGDmndDMGGKLb8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675079410927-f5hvul3oamu6evcjq0ikviamljjht15m.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "675079410927-qp6jrtm5vrq6abc53klsc0qju06hagt5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.muqin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

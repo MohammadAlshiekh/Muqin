@@ -48,96 +48,99 @@ class _HomePageState extends ConsumerState<HomePage> {
     double deviceWidth = MediaQuery.of(context).size.width;
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Theme.of(context).colorScheme.background,
-          elevation: 0,
-          actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-          ],
-        ),
-        drawer: const DrawerWidget(),
-        resizeToAvoidBottomInset: false,
-        body: SingleChildScrollView(
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  SvgPicture.asset(
-                    "assets/log_shape.svg",
-                    fit: BoxFit.cover,
-                    clipBehavior: Clip.hardEdge,
-                  ),
-                  Column(
-                    children: [
-                      SizedBox(
-                        height: deviceWidth / 8,
-                      ),
-                      Align(
-                        alignment: AlignmentDirectional.topCenter,
-                        child: SizedBox(
-                          height: deviceHeight / 4,
-                          width: deviceWidth - deviceWidth / 15,
-                          child: BookOfTheDay(book: bookOfTheDay),
-                        ),
-                      ),
-                      SizedBox(
-                        height: deviceHeight / 28,
-                      ),
-                      const Align(
-                        alignment: AlignmentDirectional.topEnd,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Text(
-                            'مقترحة لك',
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 41, 43, 56)),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      SizedBox(
-                          height: deviceHeight / 4,
-                          width: deviceWidth - deviceWidth / 15,
-                          child: ImageList(
-                              pageController: _pageController,
-                              imageURLs: imageUrls)),
-                      const SizedBox(height: 8),
-                      _buildDots(imageUrls.length),
-                      const SizedBox(height: 16),
-                      const Align(
-                        alignment: AlignmentDirectional.topEnd,
-                        child: Padding(
-                          padding: EdgeInsets.only(right: 15),
-                          child: Text(
-                            'الكتب المشهورة',
-                            style: TextStyle(
-                                fontSize: 18,
-                                color: Color.fromARGB(255, 41, 43, 56)),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        height: 16,
-                      ),
-                      ListView.builder(
-                        shrinkWrap: true,
-                        itemCount: books.length,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.only(bottom: 25.0),
-                            child: BookCard(book: books[index]),
-                          );
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Theme.of(context).colorScheme.background,
+            elevation: 0,
+            actions: [
+              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
             ],
+          ),
+          drawer: const DrawerWidget(),
+          resizeToAvoidBottomInset: false,
+          body: SingleChildScrollView(
+            child: Column(
+              children: [
+                Stack(
+                  children: [
+                    SvgPicture.asset(
+                      "assets/log_shape.svg",
+                      fit: BoxFit.cover,
+                      clipBehavior: Clip.hardEdge,
+                    ),
+                    Column(
+                      children: [
+                        SizedBox(
+                          height: deviceWidth / 8,
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional.topCenter,
+                          child: SizedBox(
+                            height: deviceHeight / 4,
+                            width: deviceWidth - deviceWidth / 15,
+                            child: BookOfTheDay(book: bookOfTheDay),
+                          ),
+                        ),
+                        SizedBox(
+                          height: deviceHeight / 28,
+                        ),
+                        const Align(
+                          alignment: AlignmentDirectional.topEnd,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 15),
+                            child: Text(
+                              'مقترحة لك',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 41, 43, 56)),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        SizedBox(
+                            height: deviceHeight / 4,
+                            width: deviceWidth - deviceWidth / 15,
+                            child: ImageList(
+                                pageController: _pageController,
+                                imageURLs: imageUrls)),
+                        const SizedBox(height: 8),
+                        _buildDots(imageUrls.length),
+                        const SizedBox(height: 16),
+                        const Align(
+                          alignment: AlignmentDirectional.topEnd,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 15),
+                            child: Text(
+                              'الكتب المشهورة',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 41, 43, 56)),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 16,
+                        ),
+                        ListView.builder(
+                          shrinkWrap: true,
+                          itemCount: books.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.only(bottom: 25.0),
+                              child: BookCard(book: books[index]),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
