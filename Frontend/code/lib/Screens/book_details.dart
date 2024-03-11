@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:muqin/Screens/audio_player.dart';
-import 'package:muqin/Screens/pdf_viewr.dart';
+import 'package:muqin/Screens/epub_viewr.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:vocsy_epub_viewer/epub_viewer.dart';
 
 class BookDetails extends StatelessWidget {
   const BookDetails({super.key});
@@ -31,10 +32,24 @@ class BookDetails extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 ElevatedButton(
-                    onPressed: () {
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const PDFViewer()));
-                    },
+                    onPressed: () async {
+                        VocsyEpub.setConfig(
+                          themeColor: Theme.of(context).primaryColor,
+                          identifier: "MuqinBook",
+                          scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
+                          allowSharing: true,
+                          enableTts: true,
+                          nightMode: true,
+                        );
+                        // get current locator
+                        VocsyEpub.locatorStream.listen((locator) {
+                          print('LOCATOR: $locator');
+                        });
+                        await VocsyEpub.openAsset(
+                          'assets/ml.epub',
+                          lastLocation:null,
+                        );
+                      },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:
                             Theme.of(context).buttonTheme.colorScheme!.primary,
@@ -50,7 +65,7 @@ class BookDetails extends StatelessWidget {
                 ElevatedButton(
                     onPressed: () {
                       Navigator.of(context).push(MaterialPageRoute(
-                          builder: (ctx) => const PDFViewer()));
+                          builder: (ctx) =>  EPUBViewer()));
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor:

@@ -51,6 +51,9 @@ dependencies:
   firebase_auth: ^4.16.0
   google_sign_in: ^6.2.1
   epub_view: ^3.1.0
+  vocsy_epub_viewer: ^2.0.0
+  dio: ^5.4.1
+  permission_handler: ^11.3.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -79,6 +82,8 @@ flutter:
     - assets/ahmadimage.jpg
     - assets/log_shape.svg
     - assets/Splash.png
+    - assets/majnoon_laila.epub
+    - assets/ml.epub
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
