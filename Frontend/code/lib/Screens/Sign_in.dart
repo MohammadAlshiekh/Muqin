@@ -12,6 +12,7 @@ import 'package:muqin/Widgets/SignInWidgets/email_field.dart';
 import 'package:muqin/Widgets/SignInWidgets/greeting_section.dart';
 import 'package:muqin/Widgets/SignInWidgets/password_field.dart';
 import 'package:muqin/providers/provider.dart';
+import 'package:muqin/services/auth_services.dart';
 
 class SignInPage extends ConsumerStatefulWidget {
   const SignInPage(this.ref, {super.key});
@@ -199,7 +200,7 @@ class _SignInPageState extends ConsumerState<SignInPage> {
                               elevation: 6,
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10))),
-                          onPressed: signInWithGoogle,
+                          onPressed: AuthService().signInWithGoogle, 
                           child: const Align(
                             alignment: Alignment.center,
                             child: Icon(

@@ -39,7 +39,6 @@ class BookDetails extends StatelessWidget {
                           scrollDirection: EpubScrollDirection.ALLDIRECTIONS,
                           allowSharing: true,
                           enableTts: true,
-                          nightMode: true,
                         );
                         // get current locator
                         VocsyEpub.locatorStream.listen((locator) {

@@ -14,6 +14,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "args",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/args-2.4.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "async",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/async-2.11.0",
       "packageUri": "lib/",
@@ -288,6 +294,12 @@
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/http_parser-4.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "icons_launcher",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/icons_launcher-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
     },
     {
       "name": "image",
@@ -668,6 +680,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/universal_io-2.2.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
       "name": "url_launcher",
       "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/url_launcher-6.2.1",
       "packageUri": "lib/",
@@ -770,13 +788,19 @@
       "languageVersion": "2.16"
     },
     {
+      "name": "yaml",
+      "rootUri": "file:///Users/solym/.pub-cache/hosted/pub.dev/yaml-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "muqin",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-03-11T17:37:42.417288Z",
+  "generated": "2024-03-15T21:24:22.449408Z",
   "generator": "pub",
   "generatorVersion": "3.3.1"
 }
