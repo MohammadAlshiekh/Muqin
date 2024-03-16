@@ -35,37 +35,13 @@ class _SignInPageState extends ConsumerState<SignInPage> {
     _googleSignIn.onCurrentUserChanged.listen((GoogleSignInAccount? account) {
       setState(() {
         currentUser = account!;
-        if (currentUser != null) {
-          print(currentUser);
-        }
-      });
+        print(currentUser);
+            });
       _googleSignIn.signInSilently();
     });
     super.initState();
   }
 
-  Future<void> signInWithGoogle() async {
-    try {
-      final GoogleSignInAccount? googleUser = await _googleSignIn.signIn();
-      
-    } on FirebaseAuthException catch (e) {
-      print(e.code);
-      if (e.code == 'invalid-credential') {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text(
-              'خطأ',
-              textDirection: TextDirection.rtl,
-            ),
-          ),
-        );
-      }
-    }
-  }
-
-  Future<void> googleSignOut() async {
-    await _googleSignIn.signOut();
-  }
 
   Future singIn() async {
     if (_formKey.currentState!.validate()) {

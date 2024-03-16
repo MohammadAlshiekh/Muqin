@@ -48,19 +48,19 @@ class _HomePageState extends ConsumerState<HomePage> {
     double deviceWidth = MediaQuery.of(context).size.width;
     return Directionality(
       textDirection: TextDirection.rtl,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Theme.of(context).colorScheme.background,
-            elevation: 0,
-            actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-            ],
-          ),
-          drawer: const DrawerWidget(),
-          resizeToAvoidBottomInset: false,
-          body: SingleChildScrollView(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.background,
+          elevation: 0,
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
+          ],
+        ),
+        drawer: const DrawerWidget(),
+        resizeToAvoidBottomInset: false,
+        body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: SingleChildScrollView(
             child: Column(
               children: [
                 Stack(
@@ -87,16 +87,19 @@ class _HomePageState extends ConsumerState<HomePage> {
                           height: deviceHeight / 28,
                         ),
                         const Align(
-                          alignment: AlignmentDirectional.topEnd,
-                          child: Padding(
-                            padding: EdgeInsets.only(right: 15),
-                            child: Text(
-                              'مقترحة لك',
-                              style: TextStyle(
-                                  fontSize: 18,
-                                  color: Color.fromARGB(255, 41, 43, 56)),
+                          alignment: AlignmentDirectional.topStart,
+                          child:
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'مقترحة لك',
+                                style: TextStyle(
+                                
+                                    fontSize: 18,
+                                    color: Color.fromARGB(255, 41, 43, 56)),
+                              ),
                             ),
-                          ),
+                          
                         ),
                         const SizedBox(
                           height: 16,
@@ -111,9 +114,9 @@ class _HomePageState extends ConsumerState<HomePage> {
                         _buildDots(imageUrls.length),
                         const SizedBox(height: 16),
                         const Align(
-                          alignment: AlignmentDirectional.topEnd,
+                          alignment: AlignmentDirectional.topStart,
                           child: Padding(
-                            padding: EdgeInsets.only(right: 15),
+                            padding: EdgeInsets.all(8),
                             child: Text(
                               'الكتب المشهورة',
                               style: TextStyle(
