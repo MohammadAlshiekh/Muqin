@@ -39,7 +39,7 @@ class MyApp extends ConsumerWidget {
       );
     }
     return MaterialApp(
-      title: 'Muqin',
+      title: 'موقن',
       theme: Theme.of(context).copyWith(
        brightness: Brightness.light,
         textTheme: GoogleFonts.notoSansArabicTextTheme(Theme.of(context).textTheme),

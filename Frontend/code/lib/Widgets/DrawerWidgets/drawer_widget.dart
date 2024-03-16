@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:muqin/Screens/Drawer%20Screens/about.dart';
 import 'package:muqin/Widgets/DrawerWidgets/drawer_header.dart';
 import 'package:muqin/Widgets/DrawerWidgets/drawer_item.dart';
 import "package:muqin/providers/provider.dart";
@@ -46,9 +47,9 @@ class DrawerWidget extends ConsumerWidget {
               onTap: () => Navigator.of(context).pop(),
             ),
             DrawerItem(
-              icon: Icons.help_outline,
-              text: 'للمساعدة',
-              onTap: () => Navigator.of(context).pop(),
+              icon: Icons.info_outline,
+              text: 'حول',
+              onTap: () => Navigator.of(context).push( MaterialPageRoute(builder: (context) => const AboutScreen())),
             ),
             const Divider(),
             DrawerItem(
