@@ -63,10 +63,12 @@ class _PlayerState extends State<Player> {
     super.initState();
     _audioPlayer = AudioPlayer();
 
-    // Fetch and attempt to play the audio
-    fetchAndPlayAudio().catchError((error) {
-      print("An error occurred during audio fetch and play: $error");
-    });
+    _audioPlayer.setFilePath('../../Backend/VA-Testing/chapter_1.mp3');
+
+    // // Fetch and attempt to play the audio
+    // fetchAndPlayAudio().catchError((error) {
+    //   print("An error occurred during audio fetch and play: $error");
+    // });
 
     // Combine streams to update UI accordingly
     _durationState =
