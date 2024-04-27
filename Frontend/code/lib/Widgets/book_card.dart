@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:muqin/Screens/epub_text.dart';
 import 'package:muqin/models/Book.dart';
+import 'package:flutter/services.dart';
+import 'package:archive/archive.dart';
+import 'dart:typed_data'; // Import for ByteData
+import 'dart:io';
+import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/material.dart';
+import 'package:epubx/epubx.dart';
+import 'package:html/parser.dart' as html_parser;
 
 class BookCard extends StatelessWidget {
   const BookCard({super.key, this.book});
@@ -49,6 +58,9 @@ class BookCard extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(builder: (ctx) => EpubText()));
+
                       // Handle "اقرا" button action (purchase, etc.)
                     },
                     child: const Text(
@@ -114,8 +126,8 @@ class BookCard extends StatelessWidget {
           const SizedBox(width: 16),
           // Right side content (Image)
           Container(
-            width: 80, // Set your desired width
-            height: 120, // Set your desired height
+            width: 80,
+            height: 120,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               image: const DecorationImage(

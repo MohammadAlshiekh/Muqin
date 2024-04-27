@@ -63,7 +63,7 @@ class _PlayerState extends State<Player> {
     super.initState();
     _audioPlayer = AudioPlayer();
 
-    _audioPlayer.setFilePath('../../Backend/VA-Testing/chapter_1.mp3');
+    _audioPlayer?.setFilePath('assets/combined_audio.mp3');
 
     // // Fetch and attempt to play the audio
     // fetchAndPlayAudio().catchError((error) {
