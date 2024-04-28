@@ -8,6 +8,7 @@ import 'package:archive/archive.dart';
 import 'package:flutter_html/flutter_html.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:muqin/models/AutoDirectonText.dart';
 
 class EpubText extends StatefulWidget {
   @override
@@ -50,7 +51,7 @@ class _EpubTextState extends State<EpubText> {
     // Optionally set an audio file
     _setAudioFile('assets/combined_audio.mp3');
     readEpubFromAssets(assetPath);
-    _scrollController.addListener(_onScroll);
+    // _scrollController.addListener(_onScroll);
   }
 
   void _onScroll() {
@@ -135,6 +136,10 @@ class _EpubTextState extends State<EpubText> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 241, 238, 247),
       appBar: AppBar(
+        title: Align(
+          child: AutoDirectionText("مجنون ليلى"),
+          alignment: AlignmentDirectional.center,
+        ),
         surfaceTintColor: Color.fromARGB(255, 241, 238, 247),
         backgroundColor: Color.fromARGB(255, 241, 238, 247),
         elevation: 0,
@@ -188,34 +193,41 @@ class _EpubTextState extends State<EpubText> {
       ),
       bottomNavigationBar: _isPlayingAudio
           ? BottomAppBar(
-              elevation: 2,
+              color: Color.fromARGB(255, 241, 238, 247),
+              elevation: 0,
               height: 150,
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  StreamBuilder<Duration>(
-                    stream: _audioPlayer.positionStream,
-                    builder: (context, snapshot) {
-                      final position = snapshot.data ?? Duration.zero;
-                      final bufferedPosition = _audioPlayer.bufferedPosition;
-                      final totalDuration =
-                          _audioPlayer.duration ?? Duration.zero;
-                      return ProgressBar(
-                        progress: position,
-                        buffered: bufferedPosition,
-                        total: totalDuration,
-                        onSeek: (duration) {
-                          _audioPlayer.seek(duration);
-                        },
-                      );
-                    },
-                  ),
-                  IconButton(
+                  Flexible(
+                      child: IconButton(
+                    iconSize: 50,
                     icon: Icon(
                       _audioPlayer.playing ? Icons.pause : Icons.play_arrow,
                     ),
                     onPressed: _toggleAudioPlayback,
-                  ),
+                  )),
+                  Flexible(
+                      flex: 3,
+                      child: StreamBuilder<Duration>(
+                        stream: _audioPlayer.positionStream,
+                        builder: (context, snapshot) {
+                          final position = snapshot.data ?? Duration.zero;
+                          final bufferedPosition =
+                              _audioPlayer.bufferedPosition;
+                          final totalDuration =
+                              _audioPlayer.duration ?? Duration.zero;
+                          return ProgressBar(
+                            progress: position,
+                            buffered: bufferedPosition,
+                            total: totalDuration,
+                            onSeek: (duration) {
+                              _audioPlayer.seek(duration);
+                            },
+                          );
+                        },
+                      )),
                 ],
               ),
             )
@@ -228,8 +240,8 @@ class _EpubTextState extends State<EpubText> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text("Page $currentPage of $totalPage",
-                        style: TextStyle(color: Colors.black)),
+                    // Text("Page $currentPage of $totalPage",  Disabled due to performance issues.
+                    //     style: TextStyle(color: Colors.black)),
                     IconButton(
                       icon: Icon(Icons.multitrack_audio_rounded,
                           color: Colors.black), // Change to appropriate icon
