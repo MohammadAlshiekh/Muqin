@@ -19,11 +19,12 @@ class _EpubTextState extends State<EpubText> {
   // Audio player
   late AudioPlayer _audioPlayer;
   bool _isPlayingAudio = false;
+
   //page number
   ScrollController _scrollController = ScrollController();
   double _previousScrollPosition = 0;
   String assetPath = 'assets/majnoon_laila.epub';
-
+  String? selectedText = '';
   String extractedText = "";
   int currentPage = 1;
   int totalPage = 1; // Initialized to 1; will be calculated later
@@ -171,6 +172,24 @@ class _EpubTextState extends State<EpubText> {
         child: SingleChildScrollView(
           // controller: _scrollController,
           child: SelectionArea(
+            onSelectionChanged: (value) => {selectedText = value?.plainText},
+            contextMenuBuilder: (
+              BuildContext context,
+              SelectableRegionState selectableRegionState,
+            ) {
+              return AdaptiveTextSelectionToolbar.buttonItems(
+                anchors: selectableRegionState.contextMenuAnchors,
+                buttonItems: <ContextMenuButtonItem>[
+                  ...selectableRegionState.contextMenuButtonItems,
+                  ContextMenuButtonItem(
+                    onPressed: () {
+                      showSummaryOverlay(context, selectedText);
+                    },
+                    label: 'Summary',
+                  ),
+                ],
+              );
+            },
             child: Html(
               data: extractedText,
               style: {
@@ -253,4 +272,49 @@ class _EpubTextState extends State<EpubText> {
             ),
     );
   }
+}
+
+void showSummaryOverlay(BuildContext context, String? text) {
+  final overlay = Overlay.of(context);
+
+  double appBarHeight = kToolbarHeight; // Default AppBar height
+
+  double topPosition = appBarHeight;
+
+  OverlayEntry entry = OverlayEntry(
+    builder: (context) => Positioned(
+      top: topPosition, // Start overlay from the bottom of the AppBar
+      left: 0,
+      right: 0,
+      child: Material(
+        elevation: 8.0, // Increased elevation
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft:
+                    Radius.circular(40), // Rounded corners at the bottom left
+                bottomRight:
+                    Radius.circular(40), // Rounded corners at the bottom right
+              ),
+            ),
+            child: AutoDirectionText(
+              '$text', // Placeholder for your summary logic
+              style: TextStyle(fontSize: 18),
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+
+  overlay?.insert(entry);
+  // Automatically dismiss the overlay after 10 seconds
+  Future.delayed(Duration(seconds: 10)).then((_) {
+    if (entry.mounted) {
+      entry.remove();
+    }
+  });
 }
