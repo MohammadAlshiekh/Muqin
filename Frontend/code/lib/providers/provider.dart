@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:muqin/models/list_manager.dart';
 
 final currentPage = StateProvider<int>((ref) => 0);
 final themeModeToggle = StateProvider<ThemeMode>(
@@ -19,3 +20,10 @@ final googleSignIn = StateProvider<GoogleSignIn>((ref) {
     'https://www.googleapis.com/auth/contacts.readonly',
   ]);
 });
+// In your providers file or wherever you manage your providers
+final listManagerProvider = StateProvider<ListManager>((ref) {
+  var manager = ListManager();
+  manager.loadLists();  // Load data immediately after instantiation
+  return manager;
+});
+

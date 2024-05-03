@@ -1,12 +1,15 @@
+import 'dart:math';
+
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:muqin/Screens/book_details.dart';
 import 'package:muqin/Widgets/DrawerWidgets/drawer_widget.dart';
 import 'package:muqin/Widgets/book_card.dart';
 import 'package:muqin/models/Book.dart';
 import 'package:muqin/Widgets/book_of_the_day.dart';
-import 'package:muqin/Widgets/image_list.dart';
-import 'package:muqin/providers/provider.dart';
+
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -17,29 +20,25 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class _HomePageState extends ConsumerState<HomePage> {
-  final List<Book> books = [
-    Book(epubPath: '', title: 'Book 1', author: 'Author 1'),
-    Book(epubPath: '', title: 'Book 2', author: 'Author 2'),
-  ];
-  Book bookOfTheDay = Book(epubPath: 'assets/مجنون ليلى.epub');
-  final List<String> imageUrls = [
-    'https://picsum.photos/800',
-    'https://picsum.photos/800',
-    'https://picsum.photos/800',
-    'https://picsum.photos/800',
-    'https://picsum.photos/800',
-    'https://picsum.photos/800',
-  ];
+  List<Book> books = [];
+  var bookOfTheDay;
+  final FirebaseStorage storage = FirebaseStorage.instance;
 
-  PageController _pageController = PageController(viewportFraction: 0.3);
+  List<String> imageUrls = [];
+  parseBooks() async {
+    books = await Book.parseBooksFromFile("assets/books.json");
+    bookOfTheDay = books[_random.nextInt(books.length)];
+    imageUrls = books.map((book) => book.imageUrl!).toList();
+
+    setState(() {});
+  }
+   
+  final _random = Random();
+
   @override
   void initState() {
     super.initState();
-    _pageController = PageController(
-      viewportFraction: 0.3,
-      initialPage:
-          (imageUrls.length / 2).round(), // Set initial page to the middle
-    );
+    parseBooks();
   }
 
   @override
@@ -88,18 +87,15 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                         const Align(
                           alignment: AlignmentDirectional.topStart,
-                          child:
-                            Padding(
-                              padding: EdgeInsets.all(8.0),
-                              child: Text(
-                                'مقترحة لك',
-                                style: TextStyle(
-                                
-                                    fontSize: 18,
-                                    color: Color.fromARGB(255, 41, 43, 56)),
-                              ),
+                          child: Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Text(
+                              'مقترحة لك',
+                              style: TextStyle(
+                                  fontSize: 18,
+                                  color: Color.fromARGB(255, 41, 43, 56)),
                             ),
-                          
+                          ),
                         ),
                         const SizedBox(
                           height: 16,
@@ -107,11 +103,34 @@ class _HomePageState extends ConsumerState<HomePage> {
                         SizedBox(
                             height: deviceHeight / 4,
                             width: deviceWidth - deviceWidth / 15,
-                            child: ImageList(
-                                pageController: _pageController,
-                                imageURLs: imageUrls)),
-                        const SizedBox(height: 8),
-                        _buildDots(imageUrls.length),
+                            child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                                itemCount: books.length,
+                                itemBuilder: (context, index) {
+                                  return InkWell(
+                                    onTap: () {
+                                      Navigator.of(context).push(
+                                          MaterialPageRoute(
+                                              builder: (ctx) => BookDetails(
+                                                  book: books[index])));
+                                    },
+                                    child: AspectRatio(
+                                      aspectRatio: 5/8,
+                                      child: Container(
+                                        margin: EdgeInsets.all(8),
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(8),
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                books[index].imageUrl!),
+                                            fit: BoxFit.cover,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                })),
                         const SizedBox(height: 16),
                         const Align(
                           alignment: AlignmentDirectional.topStart,
@@ -128,16 +147,19 @@ class _HomePageState extends ConsumerState<HomePage> {
                         const SizedBox(
                           height: 16,
                         ),
-                        ListView.builder(
-                          shrinkWrap: true,
-                          itemCount: books.length,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: const EdgeInsets.only(bottom: 25.0),
-                              child: BookCard(book: books[index]),
-                            );
-                          },
-                        ),
+                        books.isNotEmpty
+                            ? ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: books.length,
+                                itemBuilder: (context, index) {
+                                  return Padding(
+                                    padding:
+                                        const EdgeInsets.only(bottom: 25.0),
+                                    child: BookCard(book: books[index]),
+                                  );
+                                },
+                              )
+                            : const CircularProgressIndicator(),
                       ],
                     ),
                   ],
@@ -150,26 +172,4 @@ class _HomePageState extends ConsumerState<HomePage> {
     );
   }
 
-  Widget _buildDots(int pageCount) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: List.generate(
-        pageCount,
-        (index) => buildDot(index, ref.watch(currentPage) == index),
-      ),
-    );
-  }
-
-  Widget buildDot(int index, bool isActive) {
-    return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 5),
-      width: isActive ? 10 : 10,
-      height: 10,
-      decoration: BoxDecoration(
-        color:
-            isActive ? const Color.fromARGB(255, 222, 119, 115) : Colors.grey,
-        borderRadius: BorderRadius.circular(20),
-      ),
-    );
-  }
 }

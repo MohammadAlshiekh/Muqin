@@ -32,14 +32,13 @@ class BookOfTheDay extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  book?.title ?? 'مجنون ليلى',
+                  book!.title!,
                   style: const TextStyle(
                       color: Color.fromARGB(255, 78, 80, 108), fontSize: 26),
                 ),
                 Expanded(
                   child: Text(
-                    book?.description ??
-                        "The psychology of money is the study of our behavior with money. Success with money isn't about knowledge, IQ or how good you are at math. It's about behavior, and everyone is prone to certain behaviors over others.'",
+                    book!.description!,
                     style: const TextStyle(
                         fontSize: 12,
                         color: Color.fromARGB(255, 144, 145, 160),
@@ -67,7 +66,7 @@ class BookOfTheDay extends StatelessWidget {
                           ),
                           onPressed: () {
                             Navigator.of(context).push(MaterialPageRoute(
-                                builder: (ctx) => const BookDetails()));
+                                builder: (ctx) => BookDetails(book: book!)));
                           },
                           child: const Text(
                             "المزيد",
@@ -94,8 +93,7 @@ class BookOfTheDay extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            // Handle "اقرا" button action (purchase, etc.)
-                          },
+book!.downloadAndOpenEpub(context);                          },
                           child: const Text(
                             "إقرا",
                             style: TextStyle(fontSize: 14, color: Colors.white),
@@ -109,9 +107,15 @@ class BookOfTheDay extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 16),
-          const Image(
-            image: AssetImage('assets/AhmedShawqi.jpg'),
-            fit: BoxFit.contain,
+          AspectRatio(
+            aspectRatio: 5/8,
+            child: Container(
+              clipBehavior: Clip.hardEdge,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  image: DecorationImage(
+                      image: AssetImage(book!.imageUrl!), fit: BoxFit.cover)),
+            ),
           ),
         ],
       ),

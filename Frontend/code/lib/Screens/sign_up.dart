@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -27,6 +26,7 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
   @override
   void dispose() {
+    _nameController.dispose();
     _emailController.dispose();
     _passwordController.dispose();
     _vpasswordController.dispose();
@@ -40,13 +40,11 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
           password: _passwordController.text.trim(),
         );
         user.user!.updateDisplayName(_nameController.text.trim());
-        if (user != null) {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) =>  SignInPage(ref)),
-          );
-        }
-      } on FirebaseAuthException catch (e) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) =>  SignInPage(ref)),
+        );
+            } on FirebaseAuthException catch (e) {
         print(e.code);
         if (e.code == 'invalid-credential') {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -61,6 +59,8 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
       }
     }
   }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -114,7 +114,6 @@ class _SignUpPageState extends ConsumerState<SignUpPage> {
         child: Card(
           elevation: 5,
           child: TextFormField(
-            obscureText: true,
             validator: (value) {
               return null;
             },

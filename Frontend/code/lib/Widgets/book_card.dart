@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:muqin/Screens/book_details.dart';
 import 'package:muqin/models/Book.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({super.key, this.book});
   final Book? book;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,7 +51,7 @@ class BookCard extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      // Handle "اقرا" button action (purchase, etc.)
+                      book!.downloadAndOpenEpub(context);
                     },
                     child: const Text(
                       "إقرا",
@@ -74,7 +76,10 @@ class BookCard extends StatelessWidget {
                         ),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (ctx) => BookDetails(book: book!)));
+                    },
                     child: const Text(
                       "المزيد",
                       style: TextStyle(
@@ -118,9 +123,9 @@ class BookCard extends StatelessWidget {
             height: 120, // Set your desired height
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              image: const DecorationImage(
-                image: NetworkImage(
-                    'https://picsum.photos/80'), // Replace with your image URL
+              image: DecorationImage(
+                image:
+                    AssetImage(book!.imageUrl!), // Replace with your image URL
                 fit: BoxFit.cover,
               ),
             ),

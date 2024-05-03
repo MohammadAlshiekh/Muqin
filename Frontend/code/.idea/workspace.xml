@@ -5,179 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8992cd53-a8ce-4df7-a205-78e9dacc9302" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/dartpad/web_plugin_registrant.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/app/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/BoringSSL-GRPC.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/Firebase.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseAppCheckInterop.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCore-FirebaseCore_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCore.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreExtension-FirebaseCoreExtension_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreExtension.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreInternal-FirebaseCoreInternal_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseCoreInternal.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseFirestore-FirebaseFirestore_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseFirestore.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseFirestoreInternal-FirebaseFirestoreInternal_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseFirestoreInternal.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/FirebaseSharedSwift.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/Flutter.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/GoogleUtilities-GoogleUtilities_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/GoogleUtilities.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/Pods-Runner.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/Pods-RunnerTests.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/PromisesObjC-FBLPromises_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/PromisesObjC.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/abseil.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/audio_session.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/cloud_firestore.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/device_info_plus.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/firebase_core.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/gRPC-C++-gRPCCertificates-Cpp.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/gRPC-C++.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/gRPC-Core.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/just_audio.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/leveldb-library-leveldb_Privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/leveldb-library.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/nanopb.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/path_provider_foundation.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/shared_preferences_foundation-shared_preferences_foundation_privacy.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/shared_preferences_foundation.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/syncfusion_flutter_pdfviewer.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/build/ios/Pods.build/Release-iphonesimulator/url_launcher_ios.build/dgph" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/android/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/android/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/majnoon_laila.epub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ios/Podfile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/ios/Podfile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/audio_player.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/audio_player.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/book_details.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/book_details.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/epub_viewr.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/epub_viewr.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/home_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/home_page.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Screens/sign_up.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Screens/sign_up.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/DrawerWidgets/drawer_widget.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/DrawerWidgets/drawer_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/book_card.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/book_card.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Widgets/book_of_the_day.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Widgets/book_of_the_day.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/Book.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/Book.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/providers/provider.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/providers/provider.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" afterPath="$PROJECT_DIR$/macos/Flutter/GeneratedPluginRegistrant.swift" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/muqin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/muqin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/.metadata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/analysis_options.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/debug/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/kotlin/com/example/muqin/MainActivity.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/drawable-v21/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/drawable/launch_background.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/mipmap-hdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/mipmap-mdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/values-night/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/main/res/values/styles.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/app/src/profile/AndroidManifest.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/gradle.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/android/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Flutter/AppFrameworkInfo.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Flutter/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Flutter/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcodeproj/project.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcodeproj/project.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner.xcworkspace/xcshareddata/WorkspaceSettings.xcsettings" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-20x20@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-29x29@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-40x40@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-60x60@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@1x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-76x76@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-83.5x83.5@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/LaunchImage.imageset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@2x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/LaunchImage.imageset/LaunchImage@3x.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Assets.xcassets/LaunchImage.imageset/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Base.lproj/LaunchScreen.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Base.lproj/Main.storyboard" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/Runner/Runner-Bridging-Header.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/ios/RunnerTests/RunnerTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/lib/main.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/flutter/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/flutter/generated_plugin_registrant.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/flutter/generated_plugin_registrant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/flutter/generated_plugins.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/main.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/my_application.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/linux/my_application.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Flutter/Flutter-Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Flutter/Flutter-Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Flutter/GeneratedPluginRegistrant.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner.xcodeproj/project.pbxproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner.xcodeproj/project.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner.xcodeproj/xcshareddata/xcschemes/Runner.xcscheme" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner.xcworkspace/contents.xcworkspacedata" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/AppDelegate.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/Contents.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_1024.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_128.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_256.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Assets.xcassets/AppIcon.appiconset/app_icon_64.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Base.lproj/MainMenu.xib" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Configs/AppInfo.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Configs/Debug.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Configs/Release.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Configs/Warnings.xcconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/DebugProfile.entitlements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Info.plist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/MainFlutterWindow.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/Runner/Release.entitlements" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/macos/RunnerTests/RunnerTests.swift" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/pubspec.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/pubspec.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/test/widget_test.dart" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/favicon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/icons/Icon-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/icons/Icon-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/icons/Icon-maskable-192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/icons/Icon-maskable-512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/web/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/flutter/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/flutter/generated_plugin_registrant.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/flutter/generated_plugins.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/Runner.rc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/flutter_window.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/flutter_window.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/main.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/resource.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/resources/app_icon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/runner.exe.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/utils.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/utils.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/win32_window.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/muqin/windows/runner/win32_window.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugin_registrant.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/windows/flutter/generated_plugins.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Resources/StudyInScarrlet.epub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Resources/ThePrince.epub" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -236,6 +91,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
     &quot;show.migrate.to.gradle.popup&quot;: &quot;false&quot;
   }
 }</component>

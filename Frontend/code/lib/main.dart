@@ -60,7 +60,7 @@ class MyApp extends ConsumerWidget {
         
         textTheme: GoogleFonts.notoSansArabicTextTheme(Theme.of(context).textTheme),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 1, 1, 1)
+          seedColor: const Color.fromARGB(0, 1, 1, 1)
         ),
         
         buttonTheme: ButtonThemeData(
