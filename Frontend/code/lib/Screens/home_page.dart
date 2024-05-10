@@ -43,6 +43,7 @@ class _HomePageState extends ConsumerState<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    
     double deviceHeight = MediaQuery.of(context).size.height;
     double deviceWidth = MediaQuery.of(context).size.width;
     return Directionality(
@@ -149,6 +150,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                         ),
                         books.isNotEmpty
                             ? ListView.builder(
+                              physics: const NeverScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemCount: books.length,
                                 itemBuilder: (context, index) {

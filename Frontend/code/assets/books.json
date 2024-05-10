@@ -1,51 +1,39 @@
 [
     {
-      "epubPath": "/local/path/to/Dune.epub",
-      "firebaseUrl": "https://firebasestorage.googleapis.com/v0/b/muqin-740c5.appspot.com/o/books%2FDune.epub?alt=media&token=4df4d7db-f1f5-4b42-bc47-f3844d7f4462",
       "title": "Dune",
       "author": "Frank Herbert",
       "genre": "Science Fiction",
       "imageUrl": "assets/Dune.jpg",
       "authorFaceUrl": "assets/FrankHerbert.jpeg",
       "description": "Dune is a science fiction novel by Frank Herbert, widely regarded as a masterpiece of the genre. The story is set in the distant future amidst a vast interstellar empire, where a desert planet known as Arrakis, or Dune, is the only source of the universe's most valuable substance, a spice called melange. This spice is crucial for space travel and grants users extended life and enhanced mental abilities.\nThe plot follows young Paul Atreides, whose noble family assumes control of Arrakis. As they navigate complex political intrigue, ecological challenges, and a native insurgency, Paul discovers his deeper destiny tied to the planet's mysterious forces. Rich in themes of power, religion, and ecology, Dune explores the intertwining of human and environmental destinies on a grand scale.",
-      "publishedDate": "1965-08-01",
-      "downloaded": false
+      "publishedDate": "1965-08-01"
     },
     {
-      "epubPath": "/local/path/to/AStudyInScarlet.epub",
-      "firebaseUrl": "https://firebasestorage.googleapis.com/v0/b/muqin-740c5.appspot.com/o/books%2FStudyInScarrlet.epub?alt=media&token=8eb161a3-cecf-4542-8ab2-ee0551353e6e",
       "title": "A Study in Scarlet",
       "author": "Arthur Conan Doyle",
       "genre": "Detective fiction",
       "imageUrl": "assets/StudyInScarlet.jpeg",
       "authorFaceUrl": "assets/ArthurConanDoyle.webp",
       "description": "A Study in Scarlet is a detective mystery novel introducing...",
-      "publishedDate": "1887-01-01",
-      "downloaded": false
+      "publishedDate": "1887-01-01"
     },
     {
-      "epubPath": "/local/path/to/ThePrince.epub",
-      "firebaseUrl": "https://firebasestorage.googleapis.com/v0/b/muqin-740c5.appspot.com/o/books%2FThePrince.epub?alt=media&token=a2737744-667d-49bd-bc26-cf8c213df607",
       "title": "The Prince",
       "author": "Niccolò Machiavelli",
       "genre": "Political theory",
       "imageUrl": "assets/ThePrince.jpg",
       "authorFaceUrl": "assets/Niccolo.jpeg",
       "description": "كتاب 'الأمير' للمفكر السياسي نيكولو ماكافيلي، هو من الأعمال الكلاسيكية التي تعالج فن الحكم والسياسة. يقدم ماكافيلي في هذا الكتاب نصائح براغماتية للحكام حول كيفية الحفاظ على السلطة وتوسيعها، معتمدًا على تحليلات دقيقة للأحداث التاريخية وسلوك الأمراء. يُعد هذا العمل دليلًا للقادة الطامحين لفهم ديناميكيات السلطة والتأثير، ويستمر تأثيره في الفكر السياسي حتى اليوم. مناسب للقراء المهتمين بالفلسفة السياسية وتاريخ الفكر السياسي.",
-      "publishedDate": "1532-01-01",
-      "downloaded": false
+      "publishedDate": "1532-01-01"
     },
     {
-      "epubPath": "/local/path/to/ThePrince.epub",
-      "firebaseUrl": "https://firebasestorage.googleapis.com/v0/b/muqin-740c5.appspot.com/o/books%2Fml.epub?alt=media&token=48c62d3c-0126-4dd0-adb7-a3e55eddeae4",
       "title": "مجنون ليلى",
       "author": "أحمد شوقي",
       "genre": "الشعر",
       "imageUrl": "assets/mlCover.jpg",
       "authorFaceUrl": "assets/ahmadimage.jpg",
       "description": "«مجنون ليلى» هو قيس بن الملوح، من بطون هوازن، وأحد كبار الشعراء الذين عاشوا في القرن الأول الهجري إبان الحكم الأموي، ويعد قيس من المتيَّمين الذين سالت ألسنتهم بالشعر قولًا في الحب والغزل، وسمي بمجنون ليلى لهيامه بها وعشقه لها، ذلك العشق الذي فاق كل الحدود، حتى أصبح مثالًا للعاشقين، ورغم هذا الحب، فقد رفض أهل ليلى أن يزوجوها له، فهام على وجهه ينشد الشعر ويتنقل بين البلاد، حتى مات كمدًا، فأي أُنْس له في الحياة وقد استوحشت، وأي طمأنينة له في نفسه وقد صارت قلقه، وأي حب ينشده في الدنيا بعد حب ليلى! وقد تناولَت هذه المسرحية الشعرية لأمير الشعراء أحمد شوقي، تلك المأساة الدرامية تناولًا متميزًا ورائعًا.",
-      "publishedDate": "1931-01-01",
-      "downloaded": false
+      "publishedDate": "1931-01-01"
     }
   ]
   

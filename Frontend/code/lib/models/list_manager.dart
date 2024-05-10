@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:muqin/models/Book.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -38,16 +40,14 @@ class BookList {
   }
 }
 
-class ListManager {
-  Map<String, BookList> bookLists = {
-    "المفضلة": BookList(name: "المفضلة", books: [])
-  };
+// Assuming Book and BookList are defined somewhere with toJson() and fromJson() methods.
+
+class ListManager extends StateNotifier<Map<String, BookList>> {
+  ListManager() : super({});
 
   Future<void> saveLists() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    Map<String, dynamic> encodedLists =
-        bookLists.map((key, value) => MapEntry(key, value.toJson()));
-    await prefs.setString('bookLists', json.encode(encodedLists));
+    await prefs.setString('bookLists', json.encode(state.map((key, value) => MapEntry(key, value.toJson()))));
   }
 
   Future<void> loadLists() async {
@@ -55,52 +55,68 @@ class ListManager {
     String? listsString = prefs.getString('bookLists');
     if (listsString != null) {
       Map<String, dynamic> decodedLists = json.decode(listsString);
-      bookLists = decodedLists
-          .map((key, value) => MapEntry(key, BookList.fromJson(value)));
+      state = decodedLists.map((key, value) => MapEntry(key, BookList.fromJson(value)));
     }
   }
 
   void createList(String listName) {
-    if (!bookLists.containsKey(listName)) {
-      bookLists[listName] = BookList(name: listName, books: []);
+    if (!state.containsKey(listName)) {
+      state = {
+        ...state,
+        listName: BookList(name: listName, books: [])
+      };
       saveLists();
     }
   }
 
   void deleteList(String listName) {
-    bookLists.remove(listName);
-    saveLists();
+    if (state.containsKey(listName)) {
+      final newState = Map<String, BookList>.from(state);
+      newState.remove(listName);
+      state = newState;
+      saveLists();
+    }
   }
 
   void editListName(String listName, String newName) {
-    if (bookLists.containsKey(listName)) {
-      bookLists[listName]!.name = newName;
+    if (state.containsKey(listName)) {
+      final newState = Map<String, BookList>.from(state);
+      newState[listName] = BookList(name: newName, books: newState[listName]!.books);
+      state = newState;
       saveLists();
     }
   }
 
   void addBookToList(String listName, Book book) {
-    if (bookLists.containsKey(listName)) {
-      bookLists[listName]!.addBook(book);
+    if (state.containsKey(listName)) {
+      final newState = Map<String, BookList>.from(state);
+      newState[listName] = BookList(
+        name: newState[listName]!.name,
+        books: List<Book>.from(newState[listName]!.books)..add(book),
+      );
+      state = newState;
       saveLists();
     }
   }
 
   void removeBookFromList(String listName, Book book) {
-    if (bookLists.containsKey(listName)) {
-      bookLists[listName]!.removeBook(book);
+    if (state.containsKey(listName)) {
+      final newState = Map<String, BookList>.from(state);
+      newState[listName] = BookList(
+        name: newState[listName]!.name,
+        books: newState[listName]!.books.where((b) => b.title != book.title).toList(),
+      );
+      state = newState;
       saveLists();
     }
   }
 
   List<Book>? getBooksInList(String listName) {
-    return bookLists[listName]?.books;
+    return state[listName]?.books;
   }
 
   bool containsBook(String listName, Book book) {
-    if (bookLists.containsKey(listName)) {
-      return bookLists[listName]!.books.any((b) => b.title == book.title);
-    }
-    return false;
+    return state[listName]?.books.any((b) => b.title == book.title) ?? false;
   }
 }
+

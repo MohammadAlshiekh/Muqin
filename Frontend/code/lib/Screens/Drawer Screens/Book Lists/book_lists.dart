@@ -1,3 +1,5 @@
+// ignore_for_file: unused_result, no_leading_underscores_for_local_identifiers
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:muqin/Screens/Drawer%20Screens/Book%20Lists/book_list.dart';
@@ -9,8 +11,9 @@ class BookListsScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final listManager = ref.watch(listManagerProvider);
-    final bookLists = listManager.bookLists.values.toList();
+    final l = ref.watch(listManagerProvider);
+    final listManager = ref.watch(listManagerProvider.notifier);
+    final bookLists = listManager.state.values.toList();
 
     void _showAddListDialog(BuildContext context, WidgetRef ref) {
       TextEditingController listNameController = TextEditingController();
@@ -18,28 +21,31 @@ class BookListsScreen extends ConsumerWidget {
       showDialog(
         context: context,
         builder: (context) {
-          return AlertDialog(
-            title: const Text('اضف قائمة جديدة'),
-            content: TextField(
-              controller: listNameController,
-              decoration: const InputDecoration(hintText: "أدخل اسم القائمة"),
+          return Directionality(
+            textDirection: TextDirection.rtl,
+            child: AlertDialog(
+              title: const Text('اضف قائمة جديدة'),
+              content: TextField(
+                controller: listNameController,
+                decoration: const InputDecoration(hintText: "أدخل اسم القائمة"),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('الغاء'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+                TextButton(
+                  child: const Text('اضف'),
+                  onPressed: () {
+                    listManager.createList(listNameController.text);
+                    ref.refresh(listManagerProvider);
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
             ),
-            actions: <Widget>[
-              TextButton(
-                child: const Text('الغاء'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-              TextButton(
-                child: const Text('اضف'),
-                onPressed: () {
-                  listManager.createList(listNameController.text);
-                  ref.refresh(listManagerProvider);
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
           );
         },
       );
@@ -59,7 +65,7 @@ class BookListsScreen extends ConsumerWidget {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: ListView.builder(
-          itemCount: listManager.bookLists.length,
+          itemCount: listManager.state.length,
           itemBuilder: (context, index) {
             return Dismissible(
               key: Key(bookLists[index].name),
@@ -69,7 +75,7 @@ class BookListsScreen extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
                 child: const Icon(Icons.delete, color: Colors.white),
               ),
-              direction: DismissDirection.endToStart,
+              direction: DismissDirection.horizontal,
               onDismissed: (direction) {
                 listManager.deleteList(bookLists[index].name);
                 ref.refresh(listManagerProvider);

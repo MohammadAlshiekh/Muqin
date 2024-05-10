@@ -20,8 +20,9 @@ final googleSignIn = StateProvider<GoogleSignIn>((ref) {
     'https://www.googleapis.com/auth/contacts.readonly',
   ]);
 });
+
 // In your providers file or wherever you manage your providers
-final listManagerProvider = StateProvider<ListManager>((ref) {
+final listManagerProvider = StateNotifierProvider<ListManager, Map<String, BookList>>((ref) {
   var manager = ListManager();
   manager.loadLists();  // Load data immediately after instantiation
   return manager;

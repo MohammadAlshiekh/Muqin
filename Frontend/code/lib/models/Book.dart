@@ -7,8 +7,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:vocsy_epub_viewer/epub_viewer.dart';
 
 class Book {
-  String epubPath;
-  String firebaseUrl;  // URL in Firebase Storage
   String? title;
   String? author;
   String? genre;
@@ -17,26 +15,20 @@ class Book {
   double? rating;
   String? description;
   DateTime? publishedDate;
-  bool? downloaded;
   static final FirebaseStorage storage = FirebaseStorage.instance;
 
   Book({
-    required this.epubPath,
-    this.firebaseUrl = '',
     this.title,
     this.author,
     this.genre,
     this.imageUrl,
     this.description,
     this.publishedDate,
-    this.downloaded = false,
     this.authorFaceUrl,
   });
     // Factory constructor to create a Book instance from a map (json)
   factory Book.fromJson(Map<String, dynamic> json) {
     return Book(
-      epubPath: json['epubPath'],
-      firebaseUrl: json['firebaseUrl'],
       title: json['title'],
       author: json['author'],
       genre: json['genre'],
@@ -44,7 +36,6 @@ class Book {
       authorFaceUrl: json['authorFaceUrl'],
       description: json['description'],
       publishedDate: DateTime.parse(json['publishedDate']),
-      downloaded: json['downloaded'],
     );
   }
 
@@ -68,8 +59,6 @@ else{
 }
 Map<String, dynamic> toJson() {
     return {
-      'epubPath': epubPath,
-      'firebaseUrl': firebaseUrl,
       'title': title,
       'author': author,
       'genre': genre,
@@ -77,29 +66,10 @@ Map<String, dynamic> toJson() {
       'authorFaceUrl': authorFaceUrl,
       'description': description,
       'publishedDate': publishedDate?.toIso8601String(),
-      'downloaded': downloaded,
     };
   }
 
-  static Future<void> downloadBookFromFirebase(Book book) async {
-    if (book.downloaded ?? false) {
-      print("Book already downloaded.");
-      return;
-    }
-
-    final Reference ref = FirebaseStorage.instance.refFromURL(book.firebaseUrl);
-    final Directory dir = await getApplicationDocumentsDirectory();
-    final File file = File('${dir.path}/${book.title}.epub');
-
-    if (!file.existsSync()) {
-      await ref.writeToFile(file);
-      book.epubPath = file.path;
-      book.downloaded = true;
-      print("Download completed: ${file.path}");
-    } else {
-      print("File already exists locally.");
-    }
-  }
+  
 
   
      void openEpub(String filePath, BuildContext context) {
@@ -116,9 +86,7 @@ Map<String, dynamic> toJson() {
       final Directory appDocDir = await getApplicationDocumentsDirectory();
       final File epubFile = File('${appDocDir.path}/$title.epub');
 if (! await epubFile.exists()){
-      if (epubPath != epubFile.path) {
         try {
-          epubPath = epubFile.path;
           final epubRef = storage.ref("books/$title.epub");
           await epubRef.writeToFile(epubFile);
           print('EPub downloaded successfully.');
@@ -126,15 +94,32 @@ if (! await epubFile.exists()){
           print('Error downloading ePub file: $e');
           return;
         }
-      } else {
-        print('EPub already downloaded.');
       }
-}
+
 else{
-  epubPath =  epubFile.path;
   print('EPub already downloaded.');
 }
 
-      openEpub(epubPath, context);
+      openEpub(epubFile.path, context);
+    }
+     Future<void> downloadAndOpenEpubSummary(BuildContext context) async {
+      final Directory appDocDir = await getApplicationDocumentsDirectory();
+      final File epubFile = File('${appDocDir.path}/$title-Summary.epub');
+if (! await epubFile.exists()){
+        try {
+          final epubRef = storage.ref("books/summaries/$title-Summary.epub");
+          await epubRef.writeToFile(epubFile);
+          print('EPub downloaded successfully.');
+        } catch (e) {
+          print('Error downloading ePub file: $e');
+          return;
+        }
+      }
+
+else{
+  print('EPub already downloaded.');
+}
+
+      openEpub(epubFile.path, context);
     }
 }

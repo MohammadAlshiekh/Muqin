@@ -1,3 +1,5 @@
+// ignore_for_file: unused_result, unused_local_variable
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:muqin/Widgets/book_card.dart';
@@ -9,8 +11,8 @@ class BookListScreen extends ConsumerWidget {
   final String bookListName;
   @override
   Widget build(BuildContext context,WidgetRef ref) {
-    final listener = ref.listen(listManagerProvider, (previous, next) { ref.refresh(listManagerProvider);});
-    final listManager = ref.watch(listManagerProvider);
+    final l = ref.watch(listManagerProvider);
+    final listManager = ref.watch(listManagerProvider.notifier);
     final List<Book> books = listManager.getBooksInList(bookListName)!;
     return Scaffold(
       appBar: AppBar(
@@ -23,10 +25,22 @@ class BookListScreen extends ConsumerWidget {
                 shrinkWrap: true,
                 itemCount: books.length,
                 itemBuilder: (context, index) {
-                  return Padding(
+                  return Dismissible(
+              key: Key(books[index].title!),
+              background: Container(
+                color: Colors.red,
+                alignment: Alignment.centerRight,
+                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                child: const Icon(Icons.delete, color: Colors.white),
+              ),
+              direction: DismissDirection.horizontal,
+              onDismissed: (direction) {
+                listManager.removeBookFromList(bookListName, books[index]);
+                ref.refresh(listManagerProvider);
+              }, child: Padding(
                     padding: const EdgeInsets.only(bottom: 25.0),
                     child: BookCard(book: books[index]),
-                  );
+                  ));
                 },
               )
             : const Center(child: Text("أضف كتب للقائمة لتستطيع مشاهدتها")),

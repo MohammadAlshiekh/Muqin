@@ -28,6 +28,7 @@ class BookCard extends StatelessWidget {
         children: [
           // Left side content (Text)
           Expanded(
+            flex: 3,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -91,29 +92,33 @@ class BookCard extends StatelessWidget {
               ],
             ),
           ),
-          Column(
-            children: [
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Text(
-                  book?.title ?? 'Title',
-                  style: const TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+          Expanded(
+            flex: 4,
+            child: Column(
+              
+              children: [
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    book?.title ?? 'Title',textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional.centerEnd,
-                child: Text(
-                  book?.author ?? 'Author',
-                  style: const TextStyle(
-                    fontSize: 14,
-                    color: Color.fromARGB(255, 77, 80, 108),
+                Align(
+                  alignment: AlignmentDirectional.centerEnd,
+                  child: Text(
+                    book?.author ?? 'Author',textAlign: TextAlign.left,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 77, 80, 108),
+                    ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           // Spacer between text and image
           const SizedBox(width: 16),

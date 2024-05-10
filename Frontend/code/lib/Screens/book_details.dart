@@ -1,3 +1,5 @@
+// ignore_for_file: unused_result
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:muqin/Screens/Audio%20Player/audio_player.dart';
@@ -5,16 +7,18 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:muqin/models/Book.dart';
 import 'package:muqin/providers/provider.dart';
 
-class BookDetails extends StatefulWidget {
+class BookDetails extends ConsumerStatefulWidget {
   const BookDetails({super.key, required this.book});
   final Book? book;
   @override
-  State<BookDetails> createState() => _BookDetailsState();
+  ConsumerState<BookDetails> createState() => _BookDetailsState();
 }
 
-class _BookDetailsState extends State<BookDetails> {
+class _BookDetailsState extends ConsumerState<BookDetails> {
   @override
   Widget build(BuildContext context) {
+    final listManager = ref.watch(listManagerProvider.notifier);
+
     String detectLanguage({required String string}) {
       String languageCodes = 'ar';
 
@@ -25,6 +29,65 @@ class _BookDetailsState extends State<BookDetails> {
       if (arabic.hasMatch(string)) languageCodes = 'ar';
 
       return languageCodes;
+    }
+
+    // ignore: no_leading_underscores_for_local_identifiers
+    void _showAddBookToListDialog(BuildContext context, WidgetRef ref) {
+      showDialog(
+        context: context,
+        builder: (context) {
+          return Directionality(
+            textDirection: TextDirection.rtl,
+            child: AlertDialog(
+              title: const Text('اضف الكتاب لقائمة '),
+              content: SizedBox(
+                height: 250,
+                width: double.maxFinite,
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  itemBuilder: (context, index) {
+                    String listName = listManager.state.keys.elementAt(index);
+
+                    return ListTile(
+                      title: Text(listName),
+                      onTap: () {
+                        if (listManager.containsBook(listName, widget.book!)) {
+                          listManager.removeBookFromList(
+                              listName, widget.book!);
+                          ScaffoldMessenger.of(context)
+                              .showSnackBar(const SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            content: Text("تمت ازالة الكتاب من القائمة"),
+                          ));
+                          ref.refresh(listManagerProvider);
+                          Navigator.of(context).pop();
+                          return;
+                        }
+                        listManager.addBookToList(listName, widget.book!);
+                        ScaffoldMessenger.of(context)
+                            .showSnackBar(const SnackBar(
+                          content: Text("تمت اضافة الكتاب الى القائمة"),
+                        ));
+                        ref.refresh(listManagerProvider);
+                        Navigator.of(context).pop();
+                      },
+                    );
+                  },
+                  itemCount: listManager.state.keys.length,
+                ),
+              ),
+              actions: <Widget>[
+                TextButton(
+                  child: const Text('الغاء'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                ),
+              ],
+            ),
+          );
+        },
+      );
     }
 
     return Scaffold(
@@ -43,6 +106,13 @@ class _BookDetailsState extends State<BookDetails> {
           backgroundColor: const Color.fromRGBO(23, 27, 54, 1),
           elevation: 0,
           iconTheme: const IconThemeData(color: Colors.white),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  _showAddBookToListDialog(context, ref);
+                },
+                icon: const Icon(Icons.more_vert))
+          ],
         ),
         bottomNavigationBar: BottomAppBar(
           color: Colors.transparent,
@@ -52,48 +122,73 @@ class _BookDetailsState extends State<BookDetails> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                ElevatedButton(
-                    onPressed: () {
-                      widget.book!.downloadAndOpenEpub(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            Theme.of(context).buttonTheme.colorScheme!.primary,
-                        elevation: 10),
-                    child: Text(
-                      "اقرأ الكتاب كاملا",
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .buttonTheme
-                              .colorScheme!
-                              .inversePrimary),
-                    )),
-                ElevatedButton(
-                    onPressed: () {
-                      widget.book!.downloadAndOpenEpub(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            Theme.of(context).buttonTheme.colorScheme!.primary,
-                        elevation: 10),
-                    child: Text(
-                      "اقرأ الملخص",
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .buttonTheme
-                              .colorScheme!
-                              .inversePrimary),
-                    )),
-                IconButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(builder: (ctx) => const Player()));
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor:
-                            Theme.of(context).buttonTheme.colorScheme!.primary,
-                        elevation: 10),
-                    icon: const Icon(Icons.audiotrack)),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          widget.book!.downloadAndOpenEpub(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Theme.of(context)
+                                .buttonTheme
+                                .colorScheme!
+                                .primary,
+                            elevation: 10),
+                        child: Text(
+                          "اقرأ الكتاب كاملا",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .buttonTheme
+                                  .colorScheme!
+                                  .inversePrimary),
+                        )),
+                  ),
+                ),
+                Expanded(
+                  flex: 3,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: ElevatedButton(
+                        onPressed: () {
+                          widget.book!.downloadAndOpenEpubSummary(context);
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Theme.of(context)
+                                .buttonTheme
+                                .colorScheme!
+                                .primary,
+                            elevation: 10),
+                        child: Text(
+                          "اقرأ الملخص",
+                          style: TextStyle(
+                              color: Theme.of(context)
+                                  .buttonTheme
+                                  .colorScheme!
+                                  .inversePrimary),
+                        )),
+                  ),
+                ),
+                Expanded(
+                  flex: 1,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: IconButton(
+                        onPressed: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (ctx) => const Player()));
+                        },
+                        style: ElevatedButton.styleFrom(
+                            backgroundColor: Theme.of(context)
+                                .buttonTheme
+                                .colorScheme!
+                                .primary,
+                            elevation: 10),
+                        icon: const Icon(Icons.audiotrack)),
+                  ),
+                ),
               ],
             ),
           ),
@@ -136,13 +231,11 @@ class _BookDetailsState extends State<BookDetails> {
                 ),
               ],
             ),
-            Container(
-              child: SmallCard(
-                book: widget.book!,
-                title: 'المؤلف',
-                content: widget.book!.author!,
-                image: AssetImage(widget.book!.authorFaceUrl!),
-              ),
+            SmallCard(
+              book: widget.book!,
+              title: 'المؤلف',
+              content: widget.book!.author!,
+              image: AssetImage(widget.book!.authorFaceUrl!),
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -179,7 +272,7 @@ class _BookDetailsState extends State<BookDetails> {
   }
 }
 
-class SmallCard extends ConsumerWidget {
+class SmallCard extends ConsumerStatefulWidget {
   final Book book;
   final String title;
   final String content;
@@ -192,9 +285,14 @@ class SmallCard extends ConsumerWidget {
       required this.image});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final listManager = ref.watch(listManagerProvider);
-    bool isFavorite = listManager.containsBook("المفضلة", book);
+  ConsumerState<SmallCard> createState() => _SmallCardState();
+}
+
+class _SmallCardState extends ConsumerState<SmallCard> {
+  @override
+  Widget build(BuildContext context) {
+    final listManager = ref.watch(listManagerProvider.notifier);
+    bool isFavorite = listManager.containsBook("المفضلة", widget.book);
 
     return Card(
       elevation: 3, // Set the elevation (shadow) of the card
@@ -206,23 +304,27 @@ class SmallCard extends ConsumerWidget {
           children: [
             IconButton(
               onPressed: () {
+                final listManager = ref.watch(listManagerProvider.notifier);
+
                 // Toggle favorite status based on current state
                 if (isFavorite) {
-                  ref
-                      .read(listManagerProvider)
-                      .removeBookFromList("المفضلة", book);
+                  listManager.removeBookFromList("المفضلة", widget.book);
+                  isFavorite = false;
                 } else {
-                  ref.read(listManagerProvider).addBookToList("المفضلة", book);
+                  listManager.addBookToList("المفضلة", widget.book);
+                  isFavorite = true;
                 }
-                ref.refresh(listManagerProvider);
+setState(() {
+                isFavorite = isFavorite;
+});
               },
               icon: Icon(isFavorite ? Icons.star : Icons.star_border),
             ),
-            Spacer(),
+            const Spacer(),
             Column(
               children: [
                 Text(
-                  title,
+                  widget.title,
                   style: const TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 18,
@@ -230,7 +332,7 @@ class SmallCard extends ConsumerWidget {
                   textDirection: TextDirection.rtl,
                 ),
                 const SizedBox(height: 8),
-                Text(content,
+                Text(widget.content,
                     style: const TextStyle(fontSize: 16),
                     textDirection: TextDirection.rtl),
               ],
@@ -241,7 +343,7 @@ class SmallCard extends ConsumerWidget {
                 width: 50,
                 height: 50,
                 child: Image(
-                  image: image,
+                  image: widget.image,
                   fit: BoxFit
                       .cover, // BoxFit to cover the entire circular container
                 ),
