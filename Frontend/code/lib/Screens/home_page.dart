@@ -50,6 +50,7 @@ class _HomePageState extends ConsumerState<HomePage> {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: AppBar(
+          surfaceTintColor: const Color.fromARGB(255, 255, 251, 254), 
           backgroundColor: Theme.of(context).colorScheme.background,
           elevation: 0,
           actions: [
