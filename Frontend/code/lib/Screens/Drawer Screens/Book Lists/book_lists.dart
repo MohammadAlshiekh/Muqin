@@ -13,8 +13,10 @@ class BookListsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l = ref.watch(listManagerProvider);
     final listManager = ref.watch(listManagerProvider.notifier);
-    final bookLists = listManager.state.values.toList();
-
+    final bookLists =
+        ref.watch(listManagerProvider.select((state) => state.values.toList()));
+    // Debug print to see what is being rendered.
+    print("BookLists being rendered: $bookLists");
     void _showAddListDialog(BuildContext context, WidgetRef ref) {
       TextEditingController listNameController = TextEditingController();
 
@@ -40,7 +42,6 @@ class BookListsScreen extends ConsumerWidget {
                   child: const Text('اضف'),
                   onPressed: () {
                     listManager.createList(listNameController.text);
-                    ref.refresh(listManagerProvider);
                     Navigator.of(context).pop();
                   },
                 ),
@@ -65,22 +66,11 @@ class BookListsScreen extends ConsumerWidget {
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: ListView.builder(
-          itemCount: listManager.state.length,
+          itemCount: bookLists.length,
           itemBuilder: (context, index) {
-            return Dismissible(
-              key: Key(bookLists[index].name),
-              background: Container(
-                color: Colors.red,
-                alignment: Alignment.centerRight,
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: const Icon(Icons.delete, color: Colors.white),
-              ),
-              direction: DismissDirection.horizontal,
-              onDismissed: (direction) {
-                listManager.deleteList(bookLists[index].name);
-                ref.refresh(listManagerProvider);
-              },
-              child: InkWell(
+            final currentList = bookLists[index];
+            if (currentList.name == "المفضلة") {
+              return InkWell(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) =>
@@ -92,8 +82,35 @@ class BookListsScreen extends ConsumerWidget {
                       ? bookLists[index].books[0].imageUrl
                       : "assets/defaultCover.png",
                 ),
-              ),
-            );
+              );
+            } else {
+              return Dismissible(
+                key: Key(bookLists[index].name),
+                background: Container(
+                  color: Colors.red,
+                  alignment: Alignment.centerRight,
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: const Icon(Icons.delete, color: Colors.white),
+                ),
+                direction: DismissDirection.horizontal,
+                onDismissed: (direction) {
+                  listManager.deleteList(bookLists[index].name);
+                },
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => BookListScreen(
+                            bookListName: bookLists[index].name)));
+                  },
+                  child: BookListCard(
+                    bookList: bookLists[index],
+                    imageUrl: bookLists[index].books.isNotEmpty
+                        ? bookLists[index].books[0].imageUrl
+                        : "assets/defaultCover.png",
+                  ),
+                ),
+              );
+            }
           },
         ),
       ),

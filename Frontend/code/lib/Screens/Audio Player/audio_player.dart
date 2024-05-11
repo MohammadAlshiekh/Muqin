@@ -4,11 +4,12 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:muqin/Screens/Audio%20Player/audio_drawer.dart';
+import 'package:muqin/models/Book.dart';
 import 'package:path_provider/path_provider.dart';
 
 class Player extends StatefulWidget {
-  const Player({super.key});
-
+  const Player({super.key, required this.book});
+  final Book book;
   @override
   // ignore: library_private_types_in_public_api
   _PlayerState createState() => _PlayerState();
@@ -17,13 +18,19 @@ class Player extends StatefulWidget {
 class _PlayerState extends State<Player> {
   late AudioPlayer player;
   List<String> songUrls = []; // This will hold our song URLs
+  List<String> songNames = []; // This will hold our song names
+
   int currentSongIndex = 0; // Track current song index
   Future<void> fetchBooks() async {
-    final ref = FirebaseStorage.instance.ref('audiobooks/'); // adjust the path
+    final ref = FirebaseStorage.instance
+        .ref('audiobooks/${widget.book.title}/'); // adjust the path
     final result = await ref.listAll();
     final urls = await Future.wait(result.items.map((e) => e.getDownloadURL()));
+    final names = result.items.map((e) => e.name.split('.').first).toList();
+
     setState(() {
       songUrls = urls;
+      songNames = names;
       if (songUrls.isNotEmpty) {
         player.setSourceUrl(songUrls[currentSongIndex]);
       }
@@ -31,27 +38,14 @@ class _PlayerState extends State<Player> {
   }
 
   void previousBook() {
-  if (currentSongIndex > 0) {
-    changeSong(currentSongIndex - 1);
-  }  }
+    if (currentSongIndex > 0) {
+      changeSong(currentSongIndex - 1);
+    }
+  }
 
   void nextBook() {
-  if (currentSongIndex < songUrls.length - 1) {
-    changeSong(currentSongIndex + 1);
-  }
-  }
-
-  Future<String> donwnloadAudio(String path) async {
-    final ref = FirebaseStorage.instance;
-    final audioFile = ref.ref(path);
-    final temp = await getTemporaryDirectory();
-    final file = File("${temp.path}/zh.mp3");
-    try {
-      await audioFile.writeToFile(file);
-      return file.path;
-    } catch (error) {
-      print(error);
-      return "nothing";
+    if (currentSongIndex < songUrls.length - 1) {
+      changeSong(currentSongIndex + 1);
     }
   }
 
@@ -92,7 +86,7 @@ class _PlayerState extends State<Player> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
-        drawer: AudioDrawer(songUrls: songUrls, changeSong: changeSong),
+        drawer: AudioDrawer(songNames: songNames, changeSong: changeSong),
         extendBodyBehindAppBar: true,
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -118,12 +112,12 @@ class _PlayerState extends State<Player> {
                     children: [
                       const Spacer(),
                       SizedBox(
-                        height: screenWidth,
+                        height: screenWidth*1.2,
                         width: screenWidth * 0.8,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
                           child: Image.asset(
-                            "assets/mlCover.jpg",
+                            widget.book.imageUrl!,
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -131,23 +125,19 @@ class _PlayerState extends State<Player> {
                       const Spacer(),
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.end,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          IconButton(
-                            onPressed: () {},
-                            icon: const Icon(Icons.star_border),
-                          ),
-                          const Column(
+                          Column(
                             children: [
-                              Text(
+                              const Text(
                                 "تستمع الآن الى",
                                 style: TextStyle(fontSize: 18),
                                 textAlign: TextAlign.right,
                                 textDirection: TextDirection.rtl,
                               ),
                               Text(
-                                "مجنون ليلى",
-                                style: TextStyle(fontSize: 16),
+                                widget.book.title!,
+                                style: const TextStyle(fontSize: 16),
                                 textAlign: TextAlign.right,
                                 textDirection: TextDirection.rtl,
                               ),

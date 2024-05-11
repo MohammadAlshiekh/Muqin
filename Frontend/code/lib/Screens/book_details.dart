@@ -9,7 +9,7 @@ import 'package:muqin/providers/provider.dart';
 
 class BookDetails extends ConsumerStatefulWidget {
   const BookDetails({super.key, required this.book});
-  final Book? book;
+  final Book book;
   @override
   ConsumerState<BookDetails> createState() => _BookDetailsState();
 }
@@ -59,7 +59,6 @@ class _BookDetailsState extends ConsumerState<BookDetails> {
                             behavior: SnackBarBehavior.floating,
                             content: Text("تمت ازالة الكتاب من القائمة"),
                           ));
-                          ref.refresh(listManagerProvider);
                           Navigator.of(context).pop();
                           return;
                         }
@@ -68,7 +67,6 @@ class _BookDetailsState extends ConsumerState<BookDetails> {
                             .showSnackBar(const SnackBar(
                           content: Text("تمت اضافة الكتاب الى القائمة"),
                         ));
-                        ref.refresh(listManagerProvider);
                         Navigator.of(context).pop();
                       },
                     );
@@ -162,7 +160,7 @@ class _BookDetailsState extends ConsumerState<BookDetails> {
                                 .primary,
                             elevation: 10),
                         child: Text(
-                          "اقرأ الملخص",
+                          "اقرأ الملخص",textAlign: TextAlign.center,
                           style: TextStyle(
                               color: Theme.of(context)
                                   .buttonTheme
@@ -178,7 +176,7 @@ class _BookDetailsState extends ConsumerState<BookDetails> {
                     child: IconButton(
                         onPressed: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (ctx) => const Player()));
+                              builder: (ctx) => Player(book: widget.book,)));
                         },
                         style: ElevatedButton.styleFrom(
                             backgroundColor: Theme.of(context)
@@ -232,10 +230,10 @@ class _BookDetailsState extends ConsumerState<BookDetails> {
               ],
             ),
             SmallCard(
-              book: widget.book!,
+              book: widget.book,
               title: 'المؤلف',
-              content: widget.book!.author!,
-              image: AssetImage(widget.book!.authorFaceUrl!),
+              content: widget.book.author!,
+              image: AssetImage(widget.book.authorFaceUrl!),
             ),
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),

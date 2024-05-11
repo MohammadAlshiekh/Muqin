@@ -38,33 +38,60 @@ class BookList {
       'books': books.map((book) => book.toJson()).toList(),
     };
   }
+   @override
+  String toString() {
+    return 'BookList(name: $name, books: ${books.length})';
+  }
 }
 
 // Assuming Book and BookList are defined somewhere with toJson() and fromJson() methods.
 
 class ListManager extends StateNotifier<Map<String, BookList>> {
-  ListManager() : super({});
+  ListManager() : super({}) {
+    
+       print("Initializing ListManager");
+    loadLists().then((_) {
+      print("Lists loaded successfully.");
+    }).catchError((error) {
+      print("Failed to load lists: $error");
+    });
+  
+  }
+
+  Future<void> initializeLists() async {
+    await loadLists();
+    ensureFavoritesListExists();
+  }
 
   Future<void> saveLists() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
-    await prefs.setString('bookLists', json.encode(state.map((key, value) => MapEntry(key, value.toJson()))));
+    await prefs.setString('bookLists',
+        json.encode(state.map((key, value) => MapEntry(key, value.toJson()))));
   }
 
   Future<void> loadLists() async {
-    final SharedPreferences prefs = await SharedPreferences.getInstance();
-    String? listsString = prefs.getString('bookLists');
-    if (listsString != null) {
-      Map<String, dynamic> decodedLists = json.decode(listsString);
-      state = decodedLists.map((key, value) => MapEntry(key, BookList.fromJson(value)));
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
+  String? listsString = prefs.getString('bookLists');
+  if (listsString != null) {
+    Map<String, dynamic> decodedLists = json.decode(listsString);
+    state = decodedLists.map((key, value) => MapEntry(key, BookList.fromJson(value)));
+  }
+  ensureFavoritesListExists();
+  print("Current state after load and ensure: $state");  // Check the state
+  }
+
+  void ensureFavoritesListExists() {
+    if (!state.containsKey("المفضلة")) {
+      print(
+          "Creating 'Favorites' list as it does not exist."); // Debug statement
+
+      createList("المفضلة");
     }
   }
 
   void createList(String listName) {
     if (!state.containsKey(listName)) {
-      state = {
-        ...state,
-        listName: BookList(name: listName, books: [])
-      };
+      state = {...state, listName: BookList(name: listName, books: [])};
       saveLists();
     }
   }
@@ -81,7 +108,8 @@ class ListManager extends StateNotifier<Map<String, BookList>> {
   void editListName(String listName, String newName) {
     if (state.containsKey(listName)) {
       final newState = Map<String, BookList>.from(state);
-      newState[listName] = BookList(name: newName, books: newState[listName]!.books);
+      newState[listName] =
+          BookList(name: newName, books: newState[listName]!.books);
       state = newState;
       saveLists();
     }
@@ -104,7 +132,10 @@ class ListManager extends StateNotifier<Map<String, BookList>> {
       final newState = Map<String, BookList>.from(state);
       newState[listName] = BookList(
         name: newState[listName]!.name,
-        books: newState[listName]!.books.where((b) => b.title != book.title).toList(),
+        books: newState[listName]!
+            .books
+            .where((b) => b.title != book.title)
+            .toList(),
       );
       state = newState;
       saveLists();
@@ -119,4 +150,3 @@ class ListManager extends StateNotifier<Map<String, BookList>> {
     return state[listName]?.books.any((b) => b.title == book.title) ?? false;
   }
 }
-

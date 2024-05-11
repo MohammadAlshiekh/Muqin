@@ -13,8 +13,9 @@ class BookListScreen extends ConsumerWidget {
   Widget build(BuildContext context,WidgetRef ref) {
     final l = ref.watch(listManagerProvider);
     final listManager = ref.watch(listManagerProvider.notifier);
-    final List<Book> books = listManager.getBooksInList(bookListName)!;
-    return Scaffold(
+    final books = ref.watch(listManagerProvider.select(
+      (manager) => manager[bookListName]!.books ?? []
+    ));    return Scaffold(
       appBar: AppBar(
         title: Text(bookListName),
       ),
@@ -36,7 +37,6 @@ class BookListScreen extends ConsumerWidget {
               direction: DismissDirection.horizontal,
               onDismissed: (direction) {
                 listManager.removeBookFromList(bookListName, books[index]);
-                ref.refresh(listManagerProvider);
               }, child: Padding(
                     padding: const EdgeInsets.only(bottom: 25.0),
                     child: BookCard(book: books[index]),

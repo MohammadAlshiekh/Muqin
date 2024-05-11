@@ -36,7 +36,9 @@ class DrawerWidget extends ConsumerWidget {
             DrawerItem(
               icon: Icons.book,
               text: 'قوائم القراءة الخاصة بي',
-              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => const BookListsScreen(),)),
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => const BookListsScreen(),
+              )),
             ),
             DrawerItem(
               icon: Icons.notifications,
@@ -61,23 +63,6 @@ class DrawerWidget extends ConsumerWidget {
               icon: Icons.help_outline,
               text: 'تصميم البرنامج',
               onTap: () => Navigator.of(context).pop(),
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
-              child: Align(
-                alignment: Alignment.centerRight,
-                child: Switch(
-                  activeThumbImage:
-                      const ExactAssetImage("assets/Background.png", scale: 1),
-                  value: isDarkMode,
-                  onChanged: (isOn) {
-                    ThemeMode newThemeMode =
-                        isOn ? ThemeMode.dark : ThemeMode.light;
-                    // Update the theme mode state
-                    ref.read(themeModeToggle.notifier).state = newThemeMode;
-                  },
-                ),
-              ),
             )
           ],
         ),
